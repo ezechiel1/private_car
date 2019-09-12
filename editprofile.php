@@ -58,6 +58,18 @@
         text-align: left;
         margin-bottom: 2px;
       }
+
+      .btn-success {
+          background-color: #00c851 !important;
+          color: #fff;
+          font-size: 1.51rem;
+      }
+
+      .btn-danger {
+        background-color: #ff3547 !important;
+        color: #fff;
+        font-size: 1.51rem;
+    }
           </style>
 
     <div class="justify-content" style="background: #f6f8f7b3;">
@@ -155,7 +167,7 @@
           <div lg-hidden class="container">
             <div hidden-sm class="box col-md-4"  style="border: none; margin-left: 1.5%;">
               <a href="payment.php"><img src="./img/ui-sam.jpg" class="img-circle"></a>
-              
+              <br><br>
               <p>
                 <button type="button" class="btn btn-success">Save</button>
                 <button type="button" class="btn btn-danger">Cancel</button>
