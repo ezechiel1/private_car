@@ -36,7 +36,7 @@ table th {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Email</th>
+      <th scope="col">Destination palce</th>
       <th scope="col">Phone Number</th>
       <th scope="col">Address</th>
       <th scope="col">Gender</th>
