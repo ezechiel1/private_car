@@ -82,8 +82,8 @@
 
 						<div class="col-md-11">
 						 <div class="md-form">
-							 <select class="form-control" name="bank_name">
-							 			<option value="" hidden>Select Bank</option>
+							 <select style="border:none; border-bottom: 1px solid" class="form-control" name="bank_name">
+							 			<option value="" hidden> <b>Select Bank</b> </option>
 										<option value="Access Bank">Access Bank</option>
 										<option value="Bank of Kigali">Bank of Kigali</option>
 										<option value="Eco Bank/Kigali(Former BCDI)">Eco Bank/Kigali(Former BCDI)</option>

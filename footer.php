@@ -1,6 +1,6 @@
 <style>
   footer {
-    padding: 10px;
+    /* padding: 10px; */
     margin-top: 0px;
     color: #ffffff;
     background-color: #35424a;
@@ -8,12 +8,12 @@
     font-size: 15px;
 }
 </style>
-<footer>
+<footer style="position: absolute; bottom: 0px; left: 0px; width: 100%;">
      <p> Travel with Private Car, Copyright & 2019, Powered by Ghislain. M </p>
    </footer>
 
   <script src="lib/jquery/jquery.min.js"></script>
-  
+
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 
   <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
@@ -27,7 +27,7 @@
   <script type="text/javascript" src="js/bootstrap.js"></script>
     <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.js"></script>
-  
+
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
 
   <script>

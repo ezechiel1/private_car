@@ -148,7 +148,7 @@
 
 					 <br>
 								 <p clas>
-								<a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" href="registration.php"><b>Travel with this Car</b></a>
+								<a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" href="payment.php"><b>Travel with this Car</b></a>
 								 </p>
 						 </form>
 					</div>

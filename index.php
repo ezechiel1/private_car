@@ -202,7 +202,7 @@ footer {
           </div>
       </section>
 
-   <footer>
+   <footer style="position: absolute; bottom: 0px; left: 0px; width: 100%; height: 15%;">
      <p> Travel with Private Car, Copyright & 2019, Powered by Ghislain. M </p>
    </footer>
 
