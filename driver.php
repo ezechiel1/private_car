@@ -135,13 +135,13 @@
                         	</div>
 
                         	<div id="continuation">
-                          	  <a href="welcomeDriver.php" class="btn btn-info" type="submit" name="continuation">Login</a>
+                          	  <input href="welcomeDriver.php" class="btn btn-info" type="submit" name="continuation" value="SIGN IN">
+																<a style="margin-left: 12%;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                             <div>
                             	<br>
-                        	<a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                         	<div class="registration">
-					          Don't have an account yet?<br/>
-					          <a class="" href="newDriver.php">
+					          Don't have an account yet?
+					          <a class="" style="margin-left: 4%;" href="newDriver.php">
 					            Create an account
 					           </a>
 					        </div>
@@ -160,8 +160,8 @@
                 <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
               </div>
               <div class="modal-footer">
-                <button  class="btn btn-default" type="button">Submit</button>
                 <button data-dismiss="modal" class="btn btn-theme" type="button">Cancel</button>
+								 <button  class="btn btn-default" type="button">Submit</button>
               </div>
             </div>
           </div>
