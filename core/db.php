@@ -9,7 +9,7 @@ class DB{
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "kban";
+    private $dbName     = "private_car";
 
     public function __construct(){
         if(!isset($this->db)){

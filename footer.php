@@ -1,4 +1,16 @@
-
+<style>
+  footer {
+    padding: 10px;
+    margin-top: 0px;
+    color: #ffffff;
+    background-color: #35424a;
+    text-align: center;
+    font-size: 15px;
+}
+</style>
+<footer>
+     <p> Travel with Private Car, Copyright & 2019, Powered by Ghislain. M </p>
+   </footer>
 
   <script src="lib/jquery/jquery.min.js"></script>
   

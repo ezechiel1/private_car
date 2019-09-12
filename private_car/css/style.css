@@ -1,0 +1,322 @@
+
+
+body
+{
+	
+	font: 15px/1.5 Arial,helvetica,sans-serif;
+	margin:0;
+	padding:0;
+	background-color: #f4f4f4;
+}
+
+p
+{
+	font: 20px/1.5 Arial,helvetica,sans-serif;
+}
+
+label
+{
+	font: 10px/1.5 Arial,helvetica,sans-serif;	
+}
+.continuation
+{
+	background-color:#e8491d;
+}
+ /* Global*/
+}
+}
+.container
+{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+
+}
+
+.button_1
+{
+	height:38px;
+	background-color:#e8491d;
+	border:none;
+	padding: 0 20px 0 20px;
+	color: #ffffff;
+	margin:10px;
+	cursor:pointer;
+}
+
+.dark{
+	background-color: #35424a;
+	color:#ffffff;
+	margin:0 10px 0 10px;
+	pading:15px;
+}
+
+
+
+ul
+{
+  padding:0px;
+  margin:0px;
+}
+
+/*header*/
+header
+{
+	background:#35424a;
+    color:#ffffff;
+    padding-top:39px;
+    min-height:70px;
+    border-bottom: #e8491d 3px solid;  
+}
+
+header a
+{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px;
+}
+
+
+header li
+{
+	float:left;
+	display: inline;
+	padding: 0 20px 0 20px;
+}
+
+header #branding
+{
+  float:left;
+}
+
+header  #branding h1
+{
+	margin:0px;
+
+}
+
+header nav
+{
+ float:right;
+ margin-top:10px;
+}
+
+header #highlight, header #current a 
+{
+
+color:#e8491d;
+font-weight:bold;
+}
+#highlight
+{
+   color:#e8491d;
+   font-weight:bold;
+}
+
+#page-title
+{
+	color:darkblue;
+	font-size: 40px;
+	font-family: helvetica;
+}
+
+header ul li a:hover
+{
+   color:#cccccc;
+   font-weight:bold;
+
+}
+
+/*SHOWCASE*/
+
+#showcase
+{
+	min-height: 400px;
+	background:url(../img/homer.jpg);
+	color:#ffffff;
+	text-align:center;
+}
+
+#showcase h1
+{
+	
+font-size: 55px;
+margin-bottom: 10px;
+margin-top: 100px;
+}
+
+/*NEWSLETTER*/
+
+#newsletter
+{
+	padding:15px;
+	color:#ffffff;
+	background-color: #35424a;
+}
+
+#newsletter h1
+{
+	float:left;
+}
+
+#newsletter form
+{
+	float:right;
+	margin-top: 20px;
+}
+
+#newsletter input[type="email"] 
+{
+	padding:4px;
+	height:25px;
+	width:250px;
+	
+
+}
+
+/*boxes*/
+
+#boxes
+{
+	margin-top: 20px;
+
+}
+
+#boxes .box
+{
+	float:left;
+	width:30%;
+	padding:10px;
+	text-align:center;
+
+}
+
+#boxes.box img
+{
+	width: 120px;
+
+}
+
+/*sideBAR*/
+
+aside#sidebar{
+	float:right;
+	width:30%;
+	margin-top:10px;
+
+}
+
+aside#sidebar .quote input, aside#sidebar .quote textarea{
+	width:80%;
+	padding:5px;
+	
+}
+
+/*Maincol article*/
+
+article#main-col{
+	float:left;
+	width:65%;
+}
+
+
+.quote
+{
+ margin:10px 10px 10px 10px;
+}
+
+.quote h2
+{
+  margin-top: 10px;
+}
+ul#services li{
+	list-style:none;
+	padding:20px;
+	border:#cccccc solid 1px;
+	margin-bottom:5px;
+	background-color:#e6e6e6;
+
+}
+ul#services li p{
+
+  	padding:5px;
+  	font-size:20px;
+  	
+  }
+
+
+@media(max-width: 768px){
+	header #branding, header nav, header nav li , #newsletter form,#boxes .box, article#maincol, aside#sidebar
+	{
+		float:none;
+		text-align:center;
+		width:100%;
+	}
+
+	header
+	{
+		padding-bottom:20px;
+	}
+
+	#showcase h1
+	{
+	  margin-top:5px;
+	  font-size: 30px;
+	}
+   
+   #newsletter button .quote button
+   {
+   	display:block;
+   	widht:100%;
+
+   }
+   
+   #newsletter form input[type:"email"] , .quote input, .quote textarea {
+    width:100%;
+    margin-bottom:5px;
+    padding: 
+   }
+  aside#sidebar
+  {
+  	float:left;
+  }
+
+  #services ul
+  {
+  	font-size:15px;
+  }
+ 
+  ul#services li p{
+
+  	padding:0px;
+  	font-size:4px;
+  	
+  }
+} 
+   
+
+
+footer{
+
+	padding:10px;
+	margin-top: 20px;
+	color:#ffffff;
+	background-color:#e8491d;
+	text-align:center;
+	font-size: 15px;
+}
+
+ #container { margin-top:20px; }
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+
+
+
+
+
+
+
+
