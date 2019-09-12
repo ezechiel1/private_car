@@ -2,11 +2,6 @@
 	include("header.php");
 ?>
 
-         <div class="container">
-          <h1>Travel all around Rwanda</h1>
-          <p id="">Please field this form below </p>
-          </div>
-
           <style>
           	.md-form label {
 		    position: absolute;
@@ -106,6 +101,11 @@
 				font-size: 14px;
 			}
           </style>
+
+         <div class="container">
+          <h1>Travel all around Rwanda</h1>
+          <p id="">Please field this form below </p>
+          </div>
                   <!-- FORM VALIDATION -->
                   <form style="padding-left: 40%" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
@@ -145,8 +145,12 @@
 					            Create an account
 					           </a>
 					        </div>
+								</div>
+							</div>
                     </form>
-
+										<br><br><br><br><br><br><br><br>
+</div>
+</section>
         <!-- Modal -->
         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
           <div class="modal-dialog">
@@ -166,7 +170,6 @@
             </div>
           </div>
         </div>
-        <!-- modal -->
 
 <?php
 include("footer.php");
