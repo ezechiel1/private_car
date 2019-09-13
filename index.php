@@ -122,10 +122,10 @@ footer {
               </div>
              <nav>
                   <ul>
-                     <li> <a href="#"><strong> Home </strong></a></li>
+                     <li> <a href="index.php"><strong> Home </strong></a></li>
                      <li> <a href="#"><strong>About</strong></a></li>
-                     <li> <a href="driver.php"><strong>Driver</strong></a></li>
-                     <li> <a href="#"><strong>Follow-Up</strong></a></li>
+                     <li> <a href="views/driver.php"><strong>Driver</strong></a></li>
+                     <li> <a href="views/follow-up.php"><strong>Follow-Up</strong></a></li>
                   </ul>
             </nav>
           </div>
@@ -185,7 +185,7 @@ footer {
                             </div>
                           </div>
 
-                           <a type="submit" href="available_cars.php" style="background: #e8491d; font-weight: bold; font-size: 11px" name="delet" class="btn btn-lg fa fa-arrow-right col-md-1 ">continue</a>
+                           <a type="submit" href="views/available_cars.php" style="background: #e8491d; font-weight: bold; font-size: 11px" name="delet" class="btn btn-lg fa fa-arrow-right col-md-1 ">continue</a>
                         </div>
 
 
