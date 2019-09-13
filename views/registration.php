@@ -162,7 +162,7 @@
 								<li style="margin-top:  3%;"><center> <strong class="pull-left glyphicon glyphicon-calendar"> 13/09/2019</strong><strong class="pull-right">15h00'</strong> </li>
 
 							</ul>
-							<a href="payment.php"><img src="./img/car1.png"></a>
+							<a href="payment.php"><img src="../img/car1.png"></a>
 							<h3><strong> RAV 4 BMW </strong></h3>
 							<ul class="container-fluid car-list">
 								<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>

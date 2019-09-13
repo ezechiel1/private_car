@@ -62,7 +62,7 @@
    <section id="boxes" >
    	<div class="container">
    		<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="./img/car1.png"></a>
+   			<a href="payment.php"><img src="../img/car1.png"></a>
    			<h3><strong> RAV 4 BMW </strong></h3>
    			<ul class="container-fluid car-list">
    				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
@@ -74,7 +74,7 @@
    			</ul>
    		</div>
 			<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="./img/car1.png"></a>
+   			<a href="payment.php"><img src="../img/car1.png"></a>
    			<h3><strong> RAV 4 BMW </strong></h3>
    			<ul class="container-fluid car-list">
    				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
@@ -86,7 +86,7 @@
    			</ul>
    		</div>
 			<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="./img/car1.png"></a>
+   			<a href="payment.php"><img src="../img/car1.png"></a>
    			<h3><strong> RAV 4 BMW </strong></h3>
    			<ul class="container-fluid car-list">
    				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
@@ -97,6 +97,7 @@
 					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
    			</ul>
    		</div>
+   		
    	</div>
    </section>
 

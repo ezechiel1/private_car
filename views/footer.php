@@ -7,8 +7,9 @@
     text-align: center;
     font-size: 15px;
 }
+
 </style>
-<footer style="position: absolute; bottom: 0px; left: 0px; width: 100%;">
+<footer style="position: absolute; left: 0px; width: 100%;">
      <p> Travel with Private Car, Copyright & 2019, Powered by Ghislain. M </p>
    </footer>
 
