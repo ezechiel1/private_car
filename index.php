@@ -8,10 +8,10 @@
     <meta name="Author" content="Brad Traversy">
 
      <title> private car | welcome</title>
-	<link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="csss/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="csss/mdb.css">
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./csss/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="./csss/mdb.css">
   </head>
 
   <style type="text/css">

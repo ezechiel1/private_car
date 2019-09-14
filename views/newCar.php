@@ -1,13 +1,9 @@
 <?php
 	include("header.php");
+	if($_SESSION['driver_confirm_id']=='') header('location: newDriver.php');
 ?>
-
-	<div class="container">
-          <h1>Travel all around Rwanda</h1>
-          <p id="">information about your car</p>
-     </div>
 <style>
-	
+
     	#expitymonth {
     		padding-top: 1px;
     	}
@@ -15,7 +11,7 @@
     	#titlelabel{
     		padding-right: 100px;
     	}
-    	
+
     	.nav-pills > li > a {
    		 border-radius: 4px;
 		}
@@ -43,7 +39,7 @@
 		    cursor: text;
 		    color: #757575;
 			}
-			
+
 
 			.form-control {
 		    display: block;
@@ -63,7 +59,7 @@
 		    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 			}
-			
+
 			.btn {
 		    margin: 0.375rem;
 		    color: inherit;
@@ -96,24 +92,41 @@
         color: #fff;
         }
 </style>
+
+	<div class="container">
+          <h1>Travel all around Rwanda</h1>
+          <p id="">			<?php
+							 if(!isset($_SESSION)){
+									 session_start();
+									 $_SESSION['sessData']='';
+							 }
+							 else if(isset($_SESSION['sessData']) and $_SESSION['sessData']!='')
+								{    $msg=array();
+												 $msg=$_SESSION['sessData'];
+												 if($_SESSION['sessData']=='') echo 'Please create your account here';
+												 else echo $_SESSION['sessData']['status']['msg'];
+								}
+									 ?></p>
+     </div>
+
     <div class="container">
-   	   <form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+   	   <form enctype="multipart/form-data" class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/carControler.php" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
           <div class="row">
 
             <!--Grid column-->
-            
+
               <div class="col-md-4">
                <div class="md-form">
-                 <input type="text" id="name" name="name" class="form-control">
-                 <label for="name" class="">The name of your car</label>
+                 <input type="text" id="name" name="carname" class="form-control">
+                 <label for="name" class="">The name of your Car</label>
                </div>
               </div>
-            
+
              <div class="col-md-4">
               <div class="md-form">
-                <input type="text" id="l_name" name="l_name" class="form-control">
-                <label for="l_name" class="">The model of your car</label>
+                <input type="text" id="l_name" name="carmodel" class="form-control">
+                <label for="l_name" class="">The model of your Car</label>
               </div>
              </div>
             </div>
@@ -121,17 +134,17 @@
 
             <!--Grid row-->
             <div class="row">
-             <div class="col-md-4">
-              <div class="md-form">
-               <input type="email" id="email" name="email" class="form-control">
-               <label for="subject" class="">Plack Number</label>
-              </div>
-             </div>
+							<div class="col-md-4">
+							 <div class="md-form">
+								 <input type="text" id="name" name="plate_number" class="form-control">
+								 <label for="name" class="">Car Plate</label>
+							 </div>
+							</div>
 
-             <div class="col-md-4">
+						 <div class="col-md-4">
               <div class="md-form">
-               <input type="email" id="email" name="email" class="form-control">
-               <label for="subject" class="">Number of seat</label>
+               <input type="number" id="subject" name="nb_seats" class="form-control">
+               <label for="subject" class="">Number of Seats</label>
               </div>
              </div>
             </div>
@@ -140,7 +153,7 @@
              <div class="col-md-4">
               <label for="Picture">Car Picture</label>
               <!-- <div class="md-form"> -->
-               <input type="file" id="Picture" name="email" class="form-control">
+               <input style="border: none; " type="file" id="Picture" name="carpicture" class="form-control">
                <!-- <label for="subject" class="">Car Picture</label> -->
               <!-- </div> -->
              </div>
@@ -148,8 +161,8 @@
             <br>
                 <div class="row">
                   <p>
-                    <button type="button" name="" class="btn btn-primary">submit</button>
-                   
+                    <button type="submit" name="regitercar" class="btn btn-primary">Submit</button>
+
                   </p>
            </div>
         </form>

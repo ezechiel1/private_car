@@ -1,13 +1,8 @@
 <?php
 	include("header.php");
 ?>
-
-	<div class="container">
-          <h1>Travel all around Rwanda</h1>
-          <p id="">Please create your account here </p>
-     </div>
 <style>
-	
+
     	#expitymonth {
     		padding-top: 1px;
     	}
@@ -15,7 +10,7 @@
     	#titlelabel{
     		padding-right: 100px;
     	}
-    	
+
     	.nav-pills > li > a {
    		 border-radius: 4px;
 		}
@@ -43,7 +38,7 @@
 		    cursor: text;
 		    color: #757575;
 			}
-			
+
 
 			.form-control {
 		    display: block;
@@ -63,7 +58,7 @@
 		    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 			}
-			
+
 			.btn {
 		    margin: 0.375rem;
 		    color: inherit;
@@ -85,20 +80,38 @@
 			}
 
 		</style>
+	<div class="container">
+          <h1>Travel all around Rwanda</h1>
+          <p id="">
+						<?php
+					 if(!isset($_SESSION)){
+							 session_start();
+							 $_SESSION['sessData']='';
+					 }
+					 else if(isset($_SESSION['sessData']) and $_SESSION['sessData']!='')
+						{    $msg=array();
+										 $msg=$_SESSION['sessData'];
+										 if($msg['status']['msg']=='') echo 'Please create your account here';
+										 else echo $msg['status']['msg'];
+						}
+							 ?>
+						 </p>
+     </div>
+
     <div class="container">
-   	   <form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+   	   <form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/driverControler.php" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
           <div class="row">
 
             <!--Grid column-->
-            
+
               <div class="col-md-4">
                <div class="md-form">
-                 <input type="text" id="name" name="name" class="form-control">
+                 <input type="text" id="name" name="f_name" class="form-control">
                  <label for="name" class="">Your First Name</label>
                </div>
               </div>
-            
+
              <div class="col-md-4">
               <div class="md-form">
                 <input type="text" id="l_name" name="l_name" class="form-control">
@@ -116,9 +129,9 @@
                <label for="subject" class="">Email</label>
               </div>
              </div>
-            
 
-            
+
+
              <div class="col-md-4">
               <div class="md-form">
                <input type="text" id="phone" name="phone" class="form-control">
@@ -126,44 +139,55 @@
               </div>
              </div>
             </div>
-            
+
             <div class="row">
              <div class="col-md-4">
               <div class="md-form">
-               <input type="text" id="phone" name="phone" class="form-control">
+               <input type="text" id="phone" name="address" class="form-control">
                <label for="subject" class="">Address</label>
               </div>
              </div>
-            
+
             <div class="col-md-4">
               <div class="md-form">
-               <input type="text" id="phone" name="phone" class="form-control">
+               <input type="text" id="phone" name="permit_id" class="form-control">
                <label for="subject" class="">Permit Id</label>
               </div>
              </div>
             </div>
 
             <div class="row">
-             <div class="col-md-4">
+             <div class="col-md-2">
               <div class="md-form">
-               <input type="text" id="phone" name="phone" class="form-control">
-               <label for="subject" class="">Date of Birth</label>
+               <select style="border:none; border-bottom: 1px solid; margin-bottom:-1%;"  id="phone" name="gender" class="form-control">
+								 	<option value="" hidden> Gender</option>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+							 </select>
               </div>
              </div>
-            
-            
+						 <div class="col-md-2">
+              <div class="md-form">
+               <select style="border:none; border-bottom: 1px solid;" type="date" id="phone" name="age" class="form-control">
+								 	<option value="" hidden>Age</option>
+						<?php  $i=20;
+									while($i<=60){ ?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?> years</option>
+						<?php $i++; } ?>
+							 </select>
+              </div>
+             </div>
+
              <div class="col-md-4">
               <div class="md-form">
-               <input type="text" id="phone" name="phone" class="form-control">
-               <label for="subject" class="">Password</label>
+               <input type="text" id="password" name="password" class="form-control">
+               <label for="password" class="">Password</label>
               </div>
              </div>
             </div>
             <br>
                   <p>
-                  	<a href="newCar.php">
-                    <button type="button" name="" class="btn btn-primary">submit</button>
-                    </a>
+                    <button type="submit" name="registerDriver" class="btn btn-primary">submit</button>
                   </p>
            </div>
         </form>

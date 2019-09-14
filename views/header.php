@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,31 @@
 	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../csss/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="../csss/mdb.css">
+	<!-- PNotify -->
+  <link href="../pnotify/dist/pnotify.css" rel="stylesheet">
+  <link href="../pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+  <link href="../pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+	<style>
+	/* pnotify */
+	.callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+			background-color: #e8491d !important;
+			border: none;
+			color: white;
+			/* font-family: serif; */
+	}
+	</style>
 </head>
+<?php
+if(!isset($_SESSION)): session_start(); $_SESSION['sessData']='';
+elseif(isset($_SESSION['sessData']) and $_SESSION['sessData']!=''):
+?>
+<body onpageshow="new PNotify({
+                title: 'Notification',
+                text: '<?php echo $sssData['status']['msg'];?>',
+                type: 'success',
+                styling: 'bootstrap3'
+            });"></body>
+<?php endif; ?>
 <body>
 	<header>
 

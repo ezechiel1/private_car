@@ -107,7 +107,7 @@
           <p id="">Please field this form below </p>
           </div>
                   <!-- FORM VALIDATION -->
-                  <form style="padding-left: 40%" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+                  <form style="padding-left: 40%" id ="contact-form" name="contact-form" action="../class/loginControler.php" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
           <div class="row">
 
@@ -115,7 +115,7 @@
                             <div class="col-md-5">
                               <div class="md-form">
                                 <div class="md-form">
-                                  <input type="text" id="name" name="name" class="form-control">
+                                  <input type="email" id="name" name="email" class="form-control">
                                   <label for="name" class="">Enter your email here</label>
                                 </div>
                               </div>
@@ -127,7 +127,7 @@
                             <div class="col-md-5">
                               <div class="md-form">
                                 <div class="md-form">
-                                  <input type="text" id="l_name" name="l_name" class="form-control">
+                                  <input type="password" id="l_name" name="password" class="form-control">
                                   <label for="l_name" class="">Your Password</label>
                                 </div>
                               </div>
@@ -135,7 +135,7 @@
                         	</div>
 
                         	<div id="continuation">
-                          	  <input href="welcomeDriver.php" class="btn btn-info" type="submit" name="continuation" value="SIGN IN">
+                          	  <input class="btn btn-info" type="submit" name="login" value="SIGN IN">
 																<a style="margin-left: 12%;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                             <div>
                             	<br>

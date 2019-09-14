@@ -1,7 +1,6 @@
 <?php
-	include("header.php");
+	include('header_driver.php');
 ?>
-
           <style>
           	.md-form label.active {
     		font-size: 1.5rem;}
@@ -85,7 +84,7 @@
 						<div class="col-md-6">
 						 <div class="md-form">
 							 <input type="text" id="l_name" name="l_name" class="form-control">
-							 <label for="l_name" class="">Destination</label>
+							 <label for="l_name" class="">Destination </label>
 						 </div>
 						</div>
 
@@ -126,20 +125,29 @@
 					</div>
 					<div lg-hidden class="container">
 						<div hidden-sm class="box col-md-4"  style="border: 1px solid grey; margin-left: 1.5%;">
-						
-							<a href="payment.php"><img src="./img/car1.png"></a>
-							<h3><strong> RAV 4 BMW </strong></h3>
-							<ul class="container-fluid car-list">
-								<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
-								<li>Vehicle Plate : <strong class="pull-right">RAA123-AR</strong></li>
-								<li>Driver Name : <strong class="pull-right">Ghislain. M</strong></li>
-								<li>Driver Phone : <strong class="pull-right">+250 783 876 985</strong></li>
 
+<?php
+//Get Car Information
+$carInfo = $db->getRows('car',array('Order by'=>'car_id', 'where'=>array('driver_id'=>$dID)));
+if(!empty($carInfo)): foreach($carInfo as $showCar):
+?>
+							<a href="payment.php"><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $showCar['car_picture'];?>"></a>
+							<h3><strong> <?php echo $showCar['car_name']; ?> </strong></h3>
+							<ul class="container-fluid car-list">
+								<li>Car Model : <strong class="pull-right">
+									<?php echo $showCar['car_model']; ?> </strong></li>
+								<li>Vehicle Plate : <strong class="pull-right">
+									<?php echo $showCar['car_plate']; ?> </strong></li>
+								<li>Driver Name : <strong class="pull-right">
+									<?php echo $driverName; ?> </strong></li>
+								<li>Driver Phone : <strong class="pull-right"> <?php echo $driverPhone; ?> </strong></li>
 							</ul>
+<?php endforeach;
+endif; ?>
 						</div>
 					</div>
 		 </div>
-
+<br><br><br>
    </section>
 </div>
 

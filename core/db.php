@@ -26,7 +26,7 @@ class DB{
      /*
      * variable to handle the main page
      */
-   public  $url="admin/";
+   public  $url="private_car/";
 
     /*
      * Returns rows from the database based on the conditions
