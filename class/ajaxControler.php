@@ -17,9 +17,10 @@ if(!empty($toplac)):
        <select id="to_place" onchange="getTravelDestination();" id="element" name="from_place" class="form-control">
 
         <option value="" hidden>Destination</option>
-<?php $tmp=''; foreach($toplac as $showDest): if(strtolower($showDest['destination_place'])!=strtolower($tmp)):?>
+<?php $tmp=array(); foreach($toplac as $showDest):
+  if(!in_array(strtolower($showDest['destination_place']), $tmp)):?>
          <option style="color: black;" value="<?php echo $showDest['destination_place'] ?>"><?php echo $showDest['destination_place']; ?></option>
-<?php endif; $tmp=$showDest['destination_place']; endforeach; ?>
+<?php endif; $tmp[]=strtolower($showDest['destination_place']); endforeach; ?>
        </select>
        <!-- <label for="l_name" class="">Your Destination</label> -->
      </div>
@@ -43,7 +44,7 @@ if(!empty($toplac)):
 </div>
 <input type="text" hidden name="fromPlace" value="<?php echo $fromplace; ?>">
 
-<input type="submit"  style="background: #e8491d; font-weight: bold; font-size: 11px" name="goToAvailableCar" value="Continue1" class="btn btn-lg fa fa-arrow-right col-md-1 ">
+<input type="button" disabled  style="background: #e8491d; font-weight: bold; font-size: 11px" name="goToAvailableCar" value="Continue" class="btn btn-lg fa fa-arrow-right col-md-1 ">
 </span>
 <?php  endif;
 }
@@ -67,6 +68,7 @@ if(isset($_POST['toplace']))
 </div>
 <!-- <input type="text" hidden name="from" value=""> -->
 <input type="text" hidden name="toPlace" value="<?php echo $_POST['toplace']; ?>">
+
 
 <input type="submit"  style="background: #e8491d; font-weight: bold; font-size: 11px" name="goToAvailableCar" value="Continue" class="btn btn-lg fa fa-arrow-right col-md-1 ">
 </form>

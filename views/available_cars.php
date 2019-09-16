@@ -63,7 +63,7 @@
 
 		<div class="justify-content" style="background: #f6f8f7b3;">
          <div class="container">
-          <h1>Travel all around Rwanda <?php echo $fromPlace.'--'.$toPlace; ?></h1>
+          <h1>Travel all around Rwanda > <strong class="text-muted"><?php echo $fromPlace.'-to-'.$toPlace; ?></strong></h1>
           <!-- <p id=""> We want to know more about you, please fill up this form below </p> -->
           </div>
 
@@ -74,11 +74,13 @@
    			<a href="payment.php"><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $show['car_picture']; ?>"></a>
    			<h3><strong> <?php echo $show['car_name']; ?></strong></h3>
    			<ul class="container-fluid car-list">
+					<li ><center>  <strong class="pull-left "> <?php echo $show['from_date']; ?></strong> <small style="color: #e8491d;" class="glyphicon glyphicon-calendar pull-center"> </small> <strong class="pull-right"><?php echo $show['from_time']; ?></strong></center></li>
    				<li>Car Model : <strong class="pull-right"><?php echo $show['car_model'] ?></strong></li>
    				<li>Vehicle Plate : <strong class="pull-right"><?php echo $show['car_plate']; ?></strong></li>
    				<li>Driver Name : <strong class="pull-right"><?php echo $show['f_name'].' '.$show['l_name']; ?></strong></li>
    				<li>Driver Phone : <strong class="pull-right"><?php echo $show['phone_number']; ?></strong></li>
 					<li>Travel Fees : <strong class="pull-right"><?php echo $show['travel_fees']; ?></strong></li>
+
 					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
    			</ul>
    		</div>

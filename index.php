@@ -4,7 +4,7 @@ require_once 'core/db.php';
 $db = new DB();
 include('ajax.php');
 //Get available travel
-$travelOption=$db->getRows('set_travel',array('Order by'=>'from_place asc'));
+$travelOption=$db->getRows('set_travel',array('Order by'=>'trip_id desc'));
 ?>
 <!DOCTYPE html>
 <html>
@@ -152,11 +152,14 @@ footer {
                                 <div class="md-form">
                                   <select id="from_place" onchange="getTravelInfo();" id="element" name="fromPlace" class="form-control">
                                     <option value=""  hidden>From Place</option>
-<?php if(!empty($travelOption)): $tmps=''; foreach($travelOption as $getPlace): if(strtolower($getPlace['from_place'])!=strtolower($tmps)):?>
+<?php if(!empty($travelOption)): $tmps=array(); foreach($travelOption as $getPlace):
+// foreach($tmps as $gtmps):
+   if(!in_array(strtolower($getPlace['from_place']), $tmps)):?>
                                     <option class="form-control" style="color: black; height: 50px;" value="<?php echo $getPlace['from_place']; ?>"><?php echo $getPlace['from_place']; ?></option>
 <?php
-endif;
-  $tmps = $getPlace['from_place'];
+  endif;
+// endforeach;
+  $tmps[] = strtolower($getPlace['from_place']);
  endforeach; endif; ?>
                                   </select>
                                   <!-- <label for="name" class="">From place</label> -->
@@ -169,9 +172,9 @@ endif;
                             <div class="col-md-3">
                               <div class="md-form">
                                 <div class="md-form">
-                                  <select id="element" name="from_place" class="form-control">
+                                  <select required id="element" name="from_place" class="form-control">
                                     <option value="" hidden>Destination</option>
-                              
+
                                   </select>
                                   <!-- <label for="l_name" class="">Your Destination</label> -->
                                 </div>
@@ -189,12 +192,12 @@ endif;
 
                           <div class="col-md-2">
                             <div class="md-form">
-                              <input type="text" id="subject" name="subject" class="form-control">
+                              <input type="text" disabled id="subject" name="subject" class="form-control">
                               <label for="subject" class="">Time</label>
                             </div>
                           </div>
 
-                           <a type="submit" href="views/available_cars.php" style="background: #e8491d; font-weight: bold; font-size: 11px" name="delet" class="btn btn-lg fa fa-arrow-right col-md-1 ">continue</a>
+                           <a type="button" href="" style="background: #e8491d; font-weight: bold; font-size: 11px" name="goCar" class="btn btn-lg fa fa-arrow-right col-md-1 ">continue</a>
                          </span>
                         </div>
 
