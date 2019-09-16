@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+//load and initialize database class
+require_once '../core/db.php';
+$db = new DB();
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -211,36 +211,6 @@ class DB{
       $json=json_decode($jsonData,true);
     }
 
-    public function createTableResearch($table)
-    {
-        $query="CREATE TABLE ".$table." ( `ID` INT NOT NULL AUTO_INCREMENT , `book_name` VARCHAR(256) NOT NULL , `author_name` VARCHAR(256) NOT NULL , `author_continent` VARCHAR(256) NOT NULL , `author_country` VARCHAR(256) NOT NULL  , `registered_by` INT NOT NULL , `attachment` VARCHAR(2000) NOT NULL , `total_download` INT NOT NULL , `c_date` DATETIME NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
-        $validate=$this->db->query($query);
-        return $validate?true:false;
-    }
-
-    public function createTableData($table)
-    {
-        $query="CREATE TABLE ".$table." ( `ID` INT NOT NULL AUTO_INCREMENT , `data_name` VARCHAR(256) NOT NULL , `data_source` VARCHAR(256) NOT NULL , `registered_by` INT NOT NULL , `attachment` VARCHAR(2000) NOT NULL , `total_download` INT NOT NULL , `c_date` DATETIME NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
-        $validate=$this->db->query($query);
-        return $validate?true:false;
-    }
-
-    public function deleteTable($subCat)
-    {
-        $query="DROP TABLE ".$subCat."";
-        $validate=$this->db->query($query);
-        return $validate?true:false;
-    }
-
-    public function renameTable($subCat)
-    {
-        $query="RENAME TABLE ".$oldName." TO `".$newName.";";
-        $validate=$this->db->query($query);
-        return $validate?true:false;
-    }
-
-
-
     public function showDate($code)
     {
             $gett = getdate();
@@ -256,46 +226,9 @@ class DB{
       return $currentDate;
     }
 
-    //....Code for the logs
-    public function registerLogIn($userID,$logs_type)
-    {
-        $query="INSERT INTO log(start_time, userID, logs_type) VALUES(NOW(),'$userID','$logs_type')";
-        $validate=$this->db->query($query);
-        return $validate?true:false;
-    }
-
-    public function registerLogOut($userID,$logs_type)
-    {
-        //Track
-        $condition=array('Order by' => 'logsID  desc', 'where'=>array('userID'=>$userID, 'logs_type'=>$logs_type));
-        $ck=$this->getRows('log',$condition);
-        if(!empty($ck)):
-            foreach($ck as $gt):
-                $logsID=$gt['logsID'];
-                $query="UPDATE  log SET end_time=NOW() WHERE logsID='$logsID'";
-                $validate=$this->db->query($query);
-            endforeach;
-        endif;
-        return $validate?true:false;
-    }
-
-     public function getAllCotisation(){
-        $sql ="SELECT * from  visitors_c1   order by ID DESC";
+    public function getTravelInfo($driverID){
+        $sql ="SELECT * from  travel inner join set_travel on travel.trip_id=set_travel.trip_id inner join passenger on travel.passenger_id=passenger.passenger_id inner join payment on travel.payment_id=payment.payment_id where set_travel.driver_id='$driverID'  order by set_travel.destination_place aSC";
         $result = $this->db->query($sql);
-
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $data[] = $row;
-                }
-
-        }
-        return !empty($data)?$data:false;
-    }
-
-    public function getCotisation($membre){
-        $sql ="SELECT * from  cotisation inner join membre on membre.membreID=cotisation.membreID where cotisation.membreID='$membre'  order by cotisation.cotisationID DESC";
-        $result = $this->db->query($sql);
-
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
                     $data[] = $row;
@@ -303,6 +236,18 @@ class DB{
         }
         return !empty($data)?$data:false;
     }
+
+    public function getAvailableCars($fromplace,$toplace,$fromdate){
+        $sql ="SELECT * from  set_travel inner join driver on set_travel.driver_id=driver.driver_id inner join car on driver.driver_id=car.driver_id where set_travel.from_place='$fromplace' and set_travel.destination_place='$toplace'  order by set_travel.destination_place aSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
+
 
     public function totalItems($table){
         $sql ="SELECT * from  ".$table;
@@ -317,45 +262,6 @@ class DB{
     }
 
 
-    public function getPret($membre){
-        $sql ="SELECT * from  pret inner join membre on membre.membreID=pret.membreID  where pret.membreID='$membre' order by pret.pretID DESC";
-        $result = $this->db->query($sql);
-
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $data[] = $row;
-                }
-
-        }
-        return !empty($data)?$data:false;
-    }
-
-    public function getAllRemboursement(){
-        $sql ="SELECT * from  remboursement inner join membre on membre.membreID=remboursement.membreID  order by remboursement.remboursementID DESC";
-        $result = $this->db->query($sql);
-
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $data[] = $row;
-                }
-
-        }
-        return !empty($data)?$data:false;
-    }
-
-    public function getRemboursement($membre){
-        $sql ="SELECT * from  remboursement inner join membre on membre.membreID=remboursement.membreID  where remboursement.membreID='$membre' order by remboursement.remboursementID DESC";
-        $result = $this->db->query($sql);
-
-            if($result->num_rows > 0){
-                while($row = $result->fetch_assoc()){
-                    $data[] = $row;
-                }
-
-        }
-        return !empty($data)?$data:false;
-    }
-
   public function getAdmin(){
     $sql ="SELECT  * from admin ";
     $result = $this->db->query($sql);
@@ -365,34 +271,6 @@ class DB{
                 }
         }
         return !empty($data)?$data:false;
-    }
-
-    public function getMembres($table){
-      $sql ="SELECT  * from ".$table;
-      $result = $this->db->query($sql);
-              if($result->num_rows > 0){
-                  while($row = $result->fetch_assoc()){
-                      $data[] = $row;
-                  }
-          }
-          return !empty($data)?$data:false;
-      }
-
-    public function getTotalSubProduct($subcat){
-        $sql ="SELECT  * from subcategory inner join category on subcategory.categoryID=category.categoryID WHERE subcategory.subCategoryID='$subcat'";
-        $result = $this->db->query($sql);
-            if($result->num_rows > 0){
-                $gtbl = $result->fetch_assoc();
-                $table_product=$gtbl['table_product'];
-
-            $sql ="SELECT  COUNT(*) AS totSub from  ".$table_product." where subCategoryID='$subcat'";
-            $result = $this->db->query($sql);
-                if($result->num_rows > 0){
-                    $row = $result->fetch_assoc();
-                        $data = $row['totSub'];
-            }
-        }
-        return !empty($data)?$data:0;
     }
 
     public function getLastID($tbl,$ID){
@@ -416,8 +294,8 @@ class DB{
     }
 
     public function getCro($element){
-        $sql ="SELECT  * from  rwagri_crop
-        where rwagri_crop.Name  LIKE '%".$element."%' ";
+        $sql ="SELECT  * from  table_name
+        where table_name.Name  LIKE '%".$element."%' ";
 
         $result = $this->db->query($sql);
 

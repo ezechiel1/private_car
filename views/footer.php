@@ -9,7 +9,8 @@
 }
 
 </style>
-<footer style="position: absolute; left: 0px; bottom: 0px; width: 100%;">
+<br>
+<footer style="position: relative; left: 0px; bottom: 0px; width: 100%;">
      <p> Travel with Private Car, Copyright & 2019, Powered by Ghislain. M </p>
    </footer>
 

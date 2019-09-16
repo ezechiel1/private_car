@@ -1,5 +1,13 @@
 <?php
 	include("header.php");
+	if($_SESSION['toPlace']=='') header('location: ../index.php');
+	$tripID=$_SESSION['tripID'];
+	$pDate= $_SESSION['client_date'];
+	$pTime= $_SESSION['client_time'];
+	$fromPlace=$_SESSION['fromPlace'];
+	$toPlace=$_SESSION['toPlace'];
+
+	$availableCars=$db->getAvailableCars($fromPlace, $toPlace, $pDate);
 ?>
 
           <style>
@@ -55,49 +63,26 @@
 
 		<div class="justify-content" style="background: #f6f8f7b3;">
          <div class="container">
-          <h1>Travel all around Rwanda</h1>
+          <h1>Travel all around Rwanda <?php echo $fromPlace.'--'.$toPlace; ?></h1>
           <!-- <p id=""> We want to know more about you, please fill up this form below </p> -->
           </div>
 
    <section id="boxes" >
    	<div class="container">
+<?php if(!empty($availableCars)): foreach($availableCars as $show): ?>
    		<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="../img/car1.png"></a>
-   			<h3><strong> RAV 4 BMW </strong></h3>
+   			<a href="payment.php"><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $show['car_picture']; ?>"></a>
+   			<h3><strong> <?php echo $show['car_name']; ?></strong></h3>
    			<ul class="container-fluid car-list">
-   				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
-   				<li>Vehicle Plate : <strong class="pull-right">RAA123-AR</strong></li>
-   				<li>Driver Name : <strong class="pull-right">Ghislain. M</strong></li>
-   				<li>Driver Phone : <strong class="pull-right">+250 783 876 985</strong></li>
-					<li>Travel Fees : <strong class="pull-right">3300 Frw</strong></li>
+   				<li>Car Model : <strong class="pull-right"><?php echo $show['car_model'] ?></strong></li>
+   				<li>Vehicle Plate : <strong class="pull-right"><?php echo $show['car_plate']; ?></strong></li>
+   				<li>Driver Name : <strong class="pull-right"><?php echo $show['f_name'].' '.$show['l_name']; ?></strong></li>
+   				<li>Driver Phone : <strong class="pull-right"><?php echo $show['phone_number']; ?></strong></li>
+					<li>Travel Fees : <strong class="pull-right"><?php echo $show['travel_fees']; ?></strong></li>
 					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
    			</ul>
    		</div>
-			<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="../img/car1.png"></a>
-   			<h3><strong> RAV 4 BMW </strong></h3>
-   			<ul class="container-fluid car-list">
-   				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
-   				<li>Vehicle Plate : <strong class="pull-right">RAA123-AR</strong></li>
-   				<li>Driver Name : <strong class="pull-right">Ghislain. M</strong></li>
-   				<li>Driver Phone : <strong class="pull-right">+250 783 876 985</strong></li>
-					<li>Travel Fees : <strong class="pull-right">3300 Frw</strong></li>
-					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
-   			</ul>
-   		</div>
-			<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
-   			<a href="payment.php"><img src="../img/car1.png"></a>
-   			<h3><strong> RAV 4 BMW </strong></h3>
-   			<ul class="container-fluid car-list">
-   				<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
-   				<li>Vehicle Plate : <strong class="pull-right">RAA123-AR</strong></li>
-   				<li>Driver Name : <strong class="pull-right">Ghislain. M</strong></li>
-   				<li>Driver Phone : <strong class="pull-right">+250 783 876 985</strong></li>
-					<li>Travel Fees : <strong class="pull-right">3300 Frw</strong></li>
-					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
-   			</ul>
-   		</div>
-   		
+<?php endforeach; endif; ?>
    	</div>
    </section>
 

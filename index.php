@@ -1,3 +1,11 @@
+<?php session_start();
+//load and initialize database class
+require_once 'core/db.php';
+$db = new DB();
+include('ajax.php');
+//Get available travel
+$travelOption=$db->getRows('set_travel',array('Order by'=>'from_place asc'));
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -134,7 +142,7 @@ footer {
 
      <section style="background: #22323c;" id="boxes">
        <div class="container">
-        <form id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+        <form id ="contact-form" name="contact-form" action="class/travelControler.php" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
           <div class="row">
 
@@ -142,27 +150,28 @@ footer {
                             <div class="col-md-3">
                               <div class="md-form">
                                 <div class="md-form">
-                                  <select id="element" name="from_place" class="form-control">
-                                    <option value="" hidden>From Place</option>
-                                    <option value="Gisenyi">Gisenyi</option>
-                                    <option value="Musanze">Musanze</option>
-                                    <option value="Nyirangarama">Nyirangarama</option>
+                                  <select id="from_place" onchange="getTravelInfo();" id="element" name="fromPlace" class="form-control">
+                                    <option value=""  hidden>From Place</option>
+<?php if(!empty($travelOption)): $tmps=''; foreach($travelOption as $getPlace): if(strtolower($getPlace['from_place'])!=strtolower($tmps)):?>
+                                    <option class="form-control" style="color: black; height: 50px;" value="<?php echo $getPlace['from_place']; ?>"><?php echo $getPlace['from_place']; ?></option>
+<?php
+endif;
+  $tmps = $getPlace['from_place'];
+ endforeach; endif; ?>
                                   </select>
                                   <!-- <label for="name" class="">From place</label> -->
                                 </div>
                               </div>
                             </div>
                             <!--Grid column-->
-
+                        <span id="displayTravel">
                             <!--Grid column-->
                             <div class="col-md-3">
                               <div class="md-form">
                                 <div class="md-form">
                                   <select id="element" name="from_place" class="form-control">
                                     <option value="" hidden>Destination</option>
-                                    <option value="Gisenyi">Gisenyi</option>
-                                    <option value="Musanze">Musanze</option>
-                                    <option value="Nyirangarama">Nyirangarama</option>
+                              
                                   </select>
                                   <!-- <label for="l_name" class="">Your Destination</label> -->
                                 </div>
@@ -186,6 +195,7 @@ footer {
                           </div>
 
                            <a type="submit" href="views/available_cars.php" style="background: #e8491d; font-weight: bold; font-size: 11px" name="delet" class="btn btn-lg fa fa-arrow-right col-md-1 ">continue</a>
+                         </span>
                         </div>
 
 

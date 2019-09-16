@@ -67,7 +67,7 @@
 
    <section id="boxes" >
    	<div class="container" >
-			<form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+			<form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/setTravelControler.php" method="POST"  onsubmit="return validateForm()" >
 		<div class="col-md-8">
 				 <!--Grid row-->
 				 <div class="row">
@@ -76,51 +76,58 @@
 
 						 <div class="col-md-6">
 							<div class="md-form">
-								<input type="text" id="name" name="name" class="form-control">
+								<input type="text" id="name" name="from_place" class="form-control">
 								<label for="name" class="">From Place</label>
 							</div>
 						 </div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							 <input type="text" id="l_name" name="l_name" class="form-control">
+							 <input type="text" id="l_name" name="to_place" class="form-control">
 							 <label for="l_name" class="">Destination </label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							 <input type="text" id="l_name" name="l_name" class="form-control">
+							 <input style="border:none; border-bottom: 1px solid;" type="date" id="l_name" name="from_date" class="form-control">
 							 <label for="l_name" class="">Date</label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="email" id="email" name="email" class="form-control">
+							<input type="time" id="email" name="from_time" class="form-control">
 							<label for="subject" class="">Time</label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
+							<input type="text" id="phone" name="available_seats" class="form-control">
 							<label for="subject" class="">Available Seats</label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
+							<input type="text" id="phone" name="travel_fees" class="form-control">
 							<label for="subject" class="">Travel fees</label>
 						 </div>
 						</div>
 					 </div>
-
 					 <br>
-								 <p clas>
-								<a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" href="registration.php"><b>Submit</b></a>
-								 </p>
+<input type="text" hidden name="driverID" value="<?php echo $driverID; ?>">
+<?php
+//Get Car Information
+$carInfoID = $db->getRows('car',array('Order by'=>'car_id', 'where'=>array('driver_id'=>$dID)));
+if(!empty($carInfoID)): foreach($carInfoID as $getCarID):
+?>
+<input type="hidden" name="car_id" value="<?php echo $getCarID['car_id'];?>">
+<?php endforeach; endif; ?>
+								 <!-- <p clas> -->
+								<input type="submit" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs  pull-left" name="setNewTravel" value="Submit" >
+								 <!-- </p> -->
 						 </form>
 					</div>
 					<div lg-hidden class="container">

@@ -1,5 +1,7 @@
 <?php
   include("header_driver.php");
+  //Get the registered passenger from the database Table travel
+  $registeredPASSENGER=$db->getTravelInfo($driverID);
 ?>
 
 <style>
@@ -28,7 +30,7 @@ table th {
 
 <div class="container">
     <!-- <h1>Travel all around Rwanda</h1> -->
-    <h1 id=""> List of Registered Passengers </h1> 
+    <h1 id=""> List of Registered Passengers </h1>
 </div>
 
 <table class="table">
@@ -44,82 +46,24 @@ table th {
     </tr>
   </thead>
   <tbody>
+<?php
+if($registeredPASSENGER): $count=0; foreach($registeredPASSENGER as $show): $count++;
+?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th scope="row"><?php echo $count; ?></th>
+      <td><?php echo $show['passenger_fname'].' '.$show['passenger_lname']; ?></td>
+      <td><?php echo $show['destination_place']; ?></td>
+      <td><?php echo $show['passenger_phone']; ?></td>
+      <td><?php echo $show['passenger_address']; ?></td>
+      <td><?php echo $show['passenger_gender']; ?></td>
+      <td><?php echo $show['passenger_age']; ?></td>
     </tr>
+<?php endforeach;
+else:?>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th colspan="7"><center>No Passenger registered yet now!...</center></th>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-      <td></td>
-      <td></td>
-
-    </tr>
+<?php endif; ?>
   </tbody>
 </table>
 
