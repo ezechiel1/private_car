@@ -248,6 +248,16 @@ class DB{
         return !empty($data)?$data:false;
     }
 
+    public function getCarTrip($tripID){
+        $sql ="SELECT * from  set_travel inner join driver on set_travel.driver_id=driver.driver_id inner join car on driver.driver_id=car.driver_id where set_travel.trip_id='$tripID'  order by set_travel.trip_id aSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
 
     public function totalItems($table){
         $sql ="SELECT * from  ".$table;

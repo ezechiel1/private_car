@@ -14,37 +14,19 @@
 		$_SESSION['toPlace']=$_POST['toPlace'];
 		//store status into the session
 					$sessData['status']['type'] = 'success';
-          $sessData['status']['msg'] = 'Admin registered successfuly! The default password has been sent in your Email.';
+          $sessData['status']['msg'] = 'The Request has been sent succcessfully!';
 					//set redirect url
 					$redirectURL .= 'views/available_cars.php';
 
 }
-// update
-if(isset($_POST['update']))
+// goPassengerInfo
+if(isset($_POST['goPassengerInfo']))
 {
-    //check if the form is not empty
-     $tblName = 'admin';
-            //insert data
-            $Data = array
-            (
-							'admin_fname' => $_POST['fname'],
-							'admin_lname' => $_POST['lname'],
-							'admin_email' => $_POST['email'],
-							'admin_phone' => $_POST['phone'],
-							'admin_country' => $_POST['country'],
-							'admin_location' => $_POST['location'],
-							'admin_status' => $_POST['status']
-            );
-            $condition=array('adminID' => $_POST['adminID'], );
-            $update = $db->update($tblName, $Data,$condition);
-            if($update){
-                $sessData['status']['type'] = 'success';
-                $sessData['status']['msg'] = 'The modification has been saved successfuly!';
-            }
-            else{
-                $sessData['status']['type'] = 'error';
-                $sessData['status']['msg'] = 'Some  Errors occured! Please try again later!';
-            }
+				$_SESSION['tripID']=$_POST['tripID'];
+				$sessData['status']['type'] = 'success';
+				$sessData['status']['msg'] = 'The Request has been sent succcessfully!';
+				//set redirect url
+				$redirectURL .= 'views/registration.php';
 }
 // delete
 if(isset($_POST["delete"]) )

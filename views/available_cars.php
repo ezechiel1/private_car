@@ -68,6 +68,7 @@
           </div>
 
    <section id="boxes" >
+		<form method="post" action="../class/travelControler.php">
    	<div class="container">
 <?php if(!empty($availableCars)): foreach($availableCars as $show): ?>
    		<div class="box col-md-4"  style="border: 1px solid grey; margin-right: 3.2%;">
@@ -79,13 +80,15 @@
    				<li>Vehicle Plate : <strong class="pull-right"><?php echo $show['car_plate']; ?></strong></li>
    				<li>Driver Name : <strong class="pull-right"><?php echo $show['f_name'].' '.$show['l_name']; ?></strong></li>
    				<li>Driver Phone : <strong class="pull-right"><?php echo $show['phone_number']; ?></strong></li>
-					<li>Travel Fees : <strong class="pull-right"><?php echo $show['travel_fees']; ?></strong></li>
+					<li>Travel Fees : <strong class="pull-right"><?php echo $show['travel_fees']; ?> Rwf</strong></li>
 
-					<center><a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" href="registration.php"><b>Travel with this Car</b></a></center>
+					<input type="text" hidden name="tripID" value="<?php echo $show['trip_id'];?>">
+					<center><input type="submit" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-12" name="goPassengerInfo" value="Travel with this Car"></center>
    			</ul>
    		</div>
 <?php endforeach; endif; ?>
    	</div>
+	</form>
    </section>
 
 

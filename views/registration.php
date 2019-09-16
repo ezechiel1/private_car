@@ -1,6 +1,15 @@
 <?php
 	include("header.php");
+	if($_SESSION['tripID']=='') header('location: ../index.php');
+	$tripID=$_SESSION['tripID'];
+	$pDate= $_SESSION['client_date'];
+	$pTime= $_SESSION['client_time'];
+	$fromPlace=$_SESSION['fromPlace'];
+	$toPlace=$_SESSION['toPlace'];
+
+	$availableCars=$db->getCarTrip($tripID);
 ?>
+
 
           <style>
           	.md-form label.active {
@@ -150,32 +159,36 @@
 					 </div>
 
 					 <br>
+					 	<input type="text" hidden name="tripID" value="<?php echo $_SESSION['tripID']; ?>">
 								 <p>
 								<button type="Submit" name="registerpassenger" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" ><b>Submit</b></button>
 								 </p>
 						 </form>
 					</div>
 					<div lg-hidden class="container">
+<?php if(!empty($availableCars)): foreach($availableCars as $show): ?>
 						<div hidden-sm class="box col-md-4"  style="border: 1px solid grey; margin-left: 1.5%;">
 							<ul  class="container-fluid car-list-primary text-bold ">
 								<li>
-									<center><strong class="pull-left"> <small><em>From </em></small> <b class="glyphicon glyphicon-map-marker">Gisenyi</b> </strong> <b class=" glyphicon glyphicon-minus "></b> <strong class="pull-right"> <small><em>To </em></small> <b class=" glyphicon glyphicon-map-marker">Musanze</b> </strong></center>
+									<center><strong class="pull-left"> <small><em>From </em></small>
+										 <b class="glyphicon glyphicon-map-marker"><?php echo $fromPlace;?></b> </strong> <b class=" glyphicon glyphicon-minus "></b> <strong class="pull-right"> <small><em>To </em></small> <b class=" glyphicon glyphicon-map-marker"><?php echo $toPlace; ?></b> </strong></center>
 								</li>
 
-								<li style="margin-top:  3%;"><center> <strong class="pull-left glyphicon glyphicon-calendar"> 13/09/2019</strong><strong class="pull-right">15h00'</strong> </li>
+								<li style="margin-top:  3%;"><center> <strong class="pull-left glyphicon glyphicon-calendar"> <?php echo $show['from_date']; ?></strong><strong class="pull-right"><?php echo $show['from_time']; ?>'</strong> </li>
 
 							</ul>
-							<a href="payment.php"><img src="../img/car1.png"></a>
-							<h3><strong> RAV 4 BMW </strong></h3>
+							<a href="payment.php"><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $show['car_picture']; ?>"></a>
+							<h3><strong> <?php echo $show['car_name']; ?></strong></h3>
 							<ul class="container-fluid car-list">
-								<li>Car Model : <strong class="pull-right">Toyota BWM</strong></li>
-								<li>Vehicle Plate : <strong class="pull-right">RAA123-AR</strong></li>
-								<li>Driver Name : <strong class="pull-right">Ghislain. M</strong></li>
-								<li>Driver Phone : <strong class="pull-right">+250 783 876 985</strong></li>
-								<li>Travel Fees : <strong class="pull-right">3300 Frw</strong></li>
+								<li>Car Model : <strong class="pull-right"><?php echo $show['car_model']; ?></strong></li>
+								<li>Vehicle Plate : <strong class="pull-right"><?php echo $show['car_plate']; ?></strong></li>
+								<li>Driver Name : <strong class="pull-right"><?php echo $show['f_name'].' '.$show['l_name']; ?></strong></li>
+								<li>Driver Phone : <strong class="pull-right"><?php echo $show['phone_number']; ?></strong></li>
+								<li>Travel Fees : <strong class="pull-right"><?php echo $show['travel_fees']; ?> Frw</strong></li>
 
 							</ul>
 						</div>
+<?php endforeach; endif; ?>
 					</div>
 		 </div>
 
