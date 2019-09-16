@@ -98,7 +98,7 @@
 						<div class="col-md-6">
 						 <div class="md-form">
 							<input type="time" id="email" name="from_time" class="form-control">
-							<label for="subject" class="">Time</label>
+							<label for="subject" class=""></label>
 						 </div>
 						</div>
 

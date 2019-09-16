@@ -68,7 +68,7 @@
 
    <section id="boxes" >
    	<div class="container" >
-			<form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+			<form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/passengerControler.php" method="POST"  onsubmit="return validateForm()" >
 		<div class="col-md-8">
 				 <!--Grid row-->
 				 <div class="row">
@@ -77,7 +77,7 @@
 
 						 <div class="col-md-6">
 							<div class="md-form">
-								<input type="text" id="name" name="name" class="form-control">
+								<input type="text" id="name" name="f_name" class="form-control">
 								<label for="name" class="">Your First Name</label>
 							</div>
 						 </div>
@@ -91,14 +91,14 @@
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							 <input type="text" id="l_name" name="l_name" class="form-control">
+							 <input type="text" id="l_name" name="s_name" class="form-control">
 							 <label for="l_name" class="">Surname</label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="email" id="email" name="email" class="form-control">
+							<input type="email" id="email" name="email" required="" class="form-control">
 							<label for="subject" class="">Email</label>
 						 </div>
 						</div>
@@ -112,20 +112,23 @@
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
-							<label for="subject" class="">Address</label>
+							<input type="text" id="address" name="address" class="form-control">
+							<label for="subject">Address</label>
 						 </div>
 						</div>
 
 					 <div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
-							<label for="subject" class="">Gender</label>
+							<select style="border:none; border-bottom: 1px solid; margin-bottom:-1%;"  id="phone" name="gender" class="form-control">
+								 	<option value="" hidden> Gender</option>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+							 </select>
 						 </div>
 						</div>
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
+							<input type="text" id="age" name="age" class="form-control">
 							<label for="subject" class="">Age</label>
 						 </div>
 						</div>
@@ -133,22 +136,22 @@
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
+							<input type="password" id="password" name="password" required="" class="form-control">
 							<label for="subject" class="">Password</label>
 						 </div>
 						</div>
 
 						<div class="col-md-6">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
-							<label for="subject" class="">Confirm Password</label>
+							<input type="password" id="phone" name="password_c" required="" class="form-control">
+							<label for="subject">Confirm Password</label>
 						 </div>
 						</div>
 					 </div>
 
 					 <br>
-								 <p clas>
-								<a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" href="payment.php"><b>Travel with this Car</b></a>
+								 <p>
+								<button type="Submit" name="registerpassenger" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" ><b>Submit</b></button>
 								 </p>
 						 </form>
 					</div>
@@ -178,7 +181,6 @@
 
    </section>
 </div>
-
 <?php
 include("footer.php");
 ?>

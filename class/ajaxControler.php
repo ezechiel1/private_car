@@ -39,7 +39,7 @@ if(!empty($toplac)):
 <div class="col-md-2">
  <div class="md-form">
    <input type="time" style="border: none; border-bottom: 1px solid;padding: 0px;" id="subject" name="from_time" class="form-control">
-   <label for="subject" class="">Time</label>
+   <label for="subject" class=""></label>
  </div>
 </div>
 <input type="text" hidden name="fromPlace" value="<?php echo $fromplace; ?>">
@@ -63,7 +63,7 @@ if(isset($_POST['toplace']))
 <div class="col-md-2">
  <div class="md-form">
    <input type="time" style="border: none; border-bottom: 1px solid;padding: 0px;" id="subject" name="from_time" class="form-control">
-   <label for="subject" class="">Time</label>
+   <label for="subject" class=""></label>
  </div>
 </div>
 <!-- <input type="text" hidden name="from" value=""> -->
