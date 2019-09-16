@@ -74,11 +74,11 @@ if($sssData!=''):
              <nav>
                   <ul>
                      <li> <a href="editprofile.php"><strong> Profile </strong></a></li>
-                     <li> <a href="#"><strong>Car</strong></a></li>
+                     <li> <a href="editcar.php"><strong>Car</strong></a></li>
                      <li> <a href="newtravel.php"><strong>New travel</strong></a></li>
                      <li> <a href="view_travel_passengers.php"><strong>Passengers</strong></a></li>
                      <li> <a href="#"><strong>Payment</strong></a></li>
-                     <li> <a href="#"><strong>Evaluation</strong></a></li>
+                     <li> <a href="#"><strong>Follow-Up</strong></a></li>
                      <li> <a href="logout.php"><strong>Logout</strong></a></li>
                   </ul>
             </nav>

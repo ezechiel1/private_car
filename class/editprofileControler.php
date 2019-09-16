@@ -3,90 +3,79 @@
 	//load and initialize database class
 	require_once '../core/db.php';
 	$db = new DB();
-	require_once '../core/extra.php';
-	$extra = new Extra();
 	//set default redirect url
 	$redirectURL = '../../'.$db->url;
-	if(isset($_POST['registerDriver']))
+	if(isset($_POST['registerpassenger']))
 	{
-			$tblName='driver';
+			$tblName='passenger';
 				$Data = array
 				(
-          'f_name' => $_POST['f_name'],
-					'l_name' => $_POST['l_name'],
-					'age' => $_POST['age'],
-					'gender' => $_POST['gender'],
-					'email' => $_POST['email'],
-					'phone_number' => $_POST['phone'],
-					'address' => $_POST['address'],
-					'password' => $_POST['password'],
-					'permit_id' => $_POST['permit_id'],
-					'c_date' => $db->showDate('datetime')
+          			'passenger_fname' => $_POST['f_name'],
+					'passenger_lname' => $_POST['l_name'],
+					'passenger_surname' => $_POST['s_name'],
+					'passenger_email' => $_POST['email'],
+					'passenger_phone' => $_POST['phone'],
+					'passenger_address' => $_POST['address'],
+					'passenger_gender' => $_POST['gender'],
+					'passenger_age' => $_POST['age'],
+					'passenger_password' =>sha1($_POST['password']),
+					'passenger_c_date' => $db->showDate('datetime')
 				 );
 				$insert = $db->insert($tblName, $Data);
 				if($insert)
 				{
 					$sessData['status']['type'] = 'success';
-          $sessData['status']['msg'] = 'Driver registered successfuly! ';
-					$_SESSION['driver_confirm_id'] = $db->getLastID('driver','driver_id');
+          			$sessData['status']['msg'] = 'you have been registerd successfuly! ';
+					$_SESSION['passenger_confirm_id'] = $db->getLastID('passenger','passenger_id');
 					//set redirect url
-					$redirectURL .= 'views/newCar.php';
+					$redirectURL .= 'index.php';
 				}
 				else{
 					$getMessage['status']['type']='error';
 					$getMessage['status']['type']='Some  Errors occured! Please try again later!';
 					//set redirect url
-					$redirectURL .= 'views/newDriver.php';
+					$redirectURL .= 'views/registration.php';
 				}
 }
 // update
 if(isset($_POST['update']))
 {
     //check if the form is not empty
-     $tblName = 'driver';
-     if (isset($_FILES['updateProfile'])) {
-     	$updateProfile=$extra->uploadPicture('../img/profile/',$_FILES['updateProfile']);
-
-     	if ($updateProfile) {
-     		$Data0 = array ('profile_picture' => $updateProfile);
-     		$condition0=array('driver_id' => $_POST['ID']);
-     		$update0= $db->update($tblName, $Data0,$condition0);	
-     	}
-
-     }
+     $tblName = 'passenger';
             //insert data
             $Data = array
             (
-							'f_name' => $_POST['f_name'],
-							'l_name' => $_POST['l_name'],
-							'age' => $_POST['age'],
-							'gender' => $_POST['gender'],
-							'email' => $_POST['email'],
-							'phone_number' => $_POST['phone'],
-							'address' => $_POST['address'],
-							'password' => $_POST['password'],
-							'permit_id' => $_POST['permit_id']
+					'passenger_fname' => $_POST['f_name'],
+					'passenger_lname' => $_POST['l_name'],
+					'passenger_surname' => $_POST['s_name'],
+					'passenger_email' => $_POST['email'],
+					'passenger_phone' => $_POST['phone'],
+					'passenger_address' => $_POST['address'],
+					'passenger_gender' => $_POST['gender'],
+					'passenger_age' => $_POST['age'],
+					'passenger_password' =>sha1($_POST['password']),
+					'passenger_c_date' => $db->showDate('datetime')
             );
-            $condition=array('driver_id' => $_POST['ID'], );
+            $condition=array('passenger_id' => $_POST['ID'], );
             $update = $db->update($tblName, $Data,$condition);
             if($update){
                 $sessData['status']['type'] = 'success';
                 $sessData['status']['msg'] = 'The modification has been saved successfuly!';
 								//set redirect url
-								$redirectURL .= 'views/welcomeDriver.php';
+								$redirectURL .= 'index.php';
             }
             else{
                 $sessData['status']['type'] = 'error';
                 $sessData['status']['msg'] = 'Some  Errors occured! Please try again later!';
 								//set redirect url
-								$redirectURL .= 'views/editprofile.php';
+								$redirectURL .= 'index.php';
             }
 }
 // delete
 if(isset($_POST["delete"]) )
 {
-            $tblName='driver';
-            $Condition = array( 'driver_id'=> $_POST['ID'] ) ;
+            $tblName='passenger';
+            $Condition = array( 'passenger_id'=> $_POST['ID'] ) ;
 
             $delete = $db->delete($tblName,$Condition);
             if($delete){

@@ -131,7 +131,7 @@ footer {
              <nav>
                   <ul>
                      <li> <a href="index.php"><strong> Home </strong></a></li>
-                     <li> <a href="#"><strong>About</strong></a></li>
+                     <li> <a href="views/about.php"><strong>About</strong></a></li>
                      <li> <a href="views/driver.php"><strong>Driver</strong></a></li>
                      <li> <a href="views/follow-up.php"><strong>Follow-Up</strong></a></li>
                   </ul>

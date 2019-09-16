@@ -1,5 +1,6 @@
 <?php
   include("header_driver.php");
+  $driverInfo = $db->getRows('driver', array('where'=>array('driver_id'=>$_SESSION['driverID'])));
 ?>
           <style>
             .md-form label.active {
@@ -41,6 +42,7 @@
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       }
 
+
       .car-list{
 
       }
@@ -71,6 +73,8 @@
     }
           </style>
 
+      
+
     <div class="justify-content" style="background: #f6f8f7b3;">
          <div class="container">
           <h1>Travel all around Rwanda</h1>
@@ -79,103 +83,96 @@
 
    <section id="boxes" >
     <div class="container" >
-      <form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+      <form enctype="multipart/form-data" class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/driverControler.php" method="POST"  onsubmit="return validateForm()" >
     <div class="col-md-8">
          <!--Grid row-->
          <div class="row">
 
            <!--Grid column-->
-
+<?php if(!empty(($driverInfo))): foreach ($driverInfo as $show) : ?>
              <div class="col-md-6">
               <div class="md-form">
-                <input type="text" id="name" name="name" class="form-control">
-                <label for="name" class="">Your First Name</label>
+                <input type="text" id="name" name="f_name" class="form-control" value="<?php echo $show['f_name'] ?>">
               </div>
              </div>
 
             <div class="col-md-6">
              <div class="md-form">
-               <input type="text" id="l_name" name="l_name" class="form-control">
-               <label for="l_name" class="">Your Last Name</label>
+               <input type="text" id="l_name" name="l_name" class="form-control" value="<?php echo $show['l_name'] ?>">
              </div>
             </div>
 
             <div class="col-md-6">
              <div class="md-form">
-               <input type="text" id="l_name" name="l_name" class="form-control">
-               <label for="l_name" class="">Surname</label>
+              <input type="email" id="email" name="email" class="form-control" value="<?php echo $show['email'] ?>">
              </div>
             </div>
 
             <div class="col-md-6">
              <div class="md-form">
-              <input type="email" id="email" name="email" class="form-control">
-              <label for="subject" class="">Email</label>
+              <input type="text" id="phone" name="phone" class="form-control" value="<?php echo $show['phone_number'] ?>">
              </div>
             </div>
 
             <div class="col-md-6">
              <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Telephone Number</label>
-             </div>
-            </div>
-
-            <div class="col-md-6">
-             <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Address</label>
+              <input type="text" id="phone" name="address" class="form-control" value="<?php echo $show['address'] ?>">
              </div>
             </div>
 
            <div class="col-md-6">
              <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Gender</label>
+              <input type="text" id="phone" name="gender" class="form-control" value="<?php echo $show['gender'] ?>">
              </div>
             </div>
             <div class="col-md-6">
              <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Age</label>
+              <input type="text" id="phone" name="age" class="form-control" value="<?php echo $show['age'] ?>">
              </div>
             </div>
 
 
             <div class="col-md-6">
              <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Password</label>
+              <input type="text" id="phone" name="permit_id" class="form-control" value="<?php echo $show['permit_id'] ?>">
              </div>
             </div>
 
             <div class="col-md-6">
              <div class="md-form">
-              <input type="text" id="phone" name="phone" class="form-control">
-              <label for="subject" class="">Confirm Password</label>
+              <input type="text" id="phone" name="old_password" class="form-control">
+              <label>Old Password</label>
+             </div>
+            </div>
+
+            <div class="col-md-6">
+             <div class="md-form">
+              <input type="text" id="phone" name="password" class="form-control">
+              <label>New Password</label>
              </div>
             </div>
            </div>
-
-           <br>
-                 <p clas>
-
-                 </p>
-             </form>
-          </div>
+           <input type="text" hidden="" name="ID" value="<?php echo $show['driver_id'] ?>">
+ <?php endforeach; endif; ?>
+           </div>  
           <div lg-hidden class="container">
             <div hidden-sm class="box col-md-4"  style="border: none; margin-left: 1.5%;">
-              <a href="payment.php"><img src="./img/ui-sam.jpg" class="img-circle"></a>
+              <a><img src="../img/profile/index.jpeg" class="img-circle"></a>
               <br><br>
+              <input type="file" name="updateProfile" style="margin-left: 60px;">
+              <br>
               <p>
-                <button type="button" class="btn btn-success">Save</button>
+                <button type="submit" name="update" class="btn btn-success">Save</button>
                 <button type="button" class="btn btn-danger">Cancel</button>
               </p>
             </div>
           </div>
+          </form>
+          </div>
      </div>
 
    </section>
+</div>
 </div>
 
 <?php
