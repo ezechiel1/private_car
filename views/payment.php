@@ -62,6 +62,7 @@
 			.m-top{
 				margin-top: -20px;
 			}
+
           </style>
 
 		<div class="justify-content" style="background: #f6f8f7b3;">
@@ -72,7 +73,7 @@
 
    <section id="boxes" >
    	<div class="container" >
-			<form class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="" method="POST"  onsubmit="return validateForm()" >
+			<form enctype="multipart/form-data" class="cmxform form-horizontal style-form" id ="contact-form" name="contact-form" action="../class/paymentControler.php" method="POST"  onsubmit="return validateForm()" >
 		<div class="col-md-8">
 				 <!--Grid row-->
 				 <div class="row">
@@ -98,41 +99,45 @@
 
 						<div class="col-md-11 m-top">
 						 <div class="md-form">
-							 <input type="date" id="l_name" name="l_name" class="form-control">
-							 <label for="l_name" class=""></label>
+							 <input type="date" id="date_of_payment" name="date_of_payment" class="form-control">
+							 <label for="date_of_payment" class=""></label>
 						 </div>
 						</div>
 
 						<div class="col-md-11 m-top">
 						 <div class="md-form">
-							<input type="email" id="email" name="email" class="form-control">
-							<label for="subject" class="">Amount Paid(Rwf)</label>
+							<input type="text" id="amount_paid" name="amount_paid" class="form-control">
+							<label for="amount_paid" class="">Amount Paid(Rwf)</label>
 						 </div>
 						</div>
 
 						<div class="col-md-11 m-top">
 						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
+							<input type="text" id="phone" name="BankSlipNumber" class="form-control">
 							<label for="subject" class="">Bank Slip Number</label>
 						 </div>
 						</div>
 
 						<div class="col-md-11 m-top">
-						 <div class="md-form">
-							<input type="text" id="phone" name="phone" class="form-control">
-							<label for="subject" class="">Upload Bank Slip</label>
-						 </div>
+							
+				            <div class="row fileupload-buttonbar">
+				             <div class="col-md-4">
+				              <label style="font-size: 14px; color: #757575; padding-top: 10px;" for="bankslip">Upload the bank sleep</label>
+				              <br>
+				              <div class="md-form">
+				               <input style="border: none; " type="file" id="bankslip" name="bankslip" class="form-control">
+				               <!-- <label for="subject" class="">Car Picture</label> -->
+							 </div>
+						    </div>
 						</div>
-
-
-					 </div>
-
+					</div>
 					 <br>
 								 <p clas>
-								<a style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left" href="registration.php"><b>Travel with this Car</b></a>
+								<button type="submit" name="register_payment" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs col-md-3 pull-left"><b>Submit</b></button>
 								 </p>
 						 </form>
 					</div>
+				</div>
 
 					<div lg-hidden class="container">
 						<div hidden-sm class="box col-md-5"  style="border: 1px solid grey; margin-left: 1.5%;">
