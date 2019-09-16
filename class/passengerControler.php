@@ -10,16 +10,16 @@
 			$tblName='passenger';
 				$Data = array
 				(
-          			'f_name' => $_POST['f_name'],
-					'l_name' => $_POST['l_name'],
-					'surname' => $_POST['s_name'],
-					'email' => $_POST['email'],
-					'phone_number' => $_POST['phone'],
-					'address' => $_POST['address'],
-					'gender' => $_POST['gender'],
-					'age' => $_POST['age'],
-					'password' =>sha1($_POST['password']),
-					'c_date' => $db->showDate('datetime')
+          			'passenger_fname' => $_POST['f_name'],
+					'passenger_lname' => $_POST['l_name'],
+					'passenger_surname' => $_POST['s_name'],
+					'passenger_email' => $_POST['email'],
+					'passenger_phone' => $_POST['phone'],
+					'passenger_address' => $_POST['address'],
+					'passenger_gender' => $_POST['gender'],
+					'passenger_age' => $_POST['age'],
+					'passenger_password' =>sha1($_POST['password']),
+					'passenger_c_date' => $db->showDate('datetime')
 				 );
 				$insert = $db->insert($tblName, $Data);
 				if($insert)
@@ -45,15 +45,16 @@ if(isset($_POST['update']))
             //insert data
             $Data = array
             (
-					'f_name' => $_POST['f_name'],
-					'l_name' => $_POST['l_name'],
-					'surname' => $_POST['s_name'],
-					'email' => $_POST['email'],
-					'phone_number' => $_POST['phone'],
-					'address' => $_POST['address'],
-					'gender' => $_POST['gender'],
-					'age' => $_POST['age'],
-					'password' => $_POST['password'],
+					'passenger_fname' => $_POST['f_name'],
+					'passenger_lname' => $_POST['l_name'],
+					'passenger_surname' => $_POST['s_name'],
+					'passenger_email' => $_POST['email'],
+					'passenger_phone' => $_POST['phone'],
+					'passenger_address' => $_POST['address'],
+					'passenger_gender' => $_POST['gender'],
+					'passenger_age' => $_POST['age'],
+					'passenger_password' =>sha1($_POST['password']),
+					'passenger_c_date' => $db->showDate('datetime')
             );
             $condition=array('passenger_id' => $_POST['ID'], );
             $update = $db->update($tblName, $Data,$condition);
