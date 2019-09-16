@@ -10,7 +10,7 @@
 			$tblName='passenger';
 				$Data = array
 				(
-          			'passenger_fname' => $_POST['f_name'],
+          'passenger_fname' => $_POST['f_name'],
 					'passenger_lname' => $_POST['l_name'],
 					'passenger_surname' => $_POST['s_name'],
 					'passenger_email' => $_POST['email'],
@@ -18,21 +18,22 @@
 					'passenger_address' => $_POST['address'],
 					'passenger_gender' => $_POST['gender'],
 					'passenger_age' => $_POST['age'],
-					'passenger_password' =>sha1($_POST['password']),
+					'passenger_password' => sha1($_POST['password']),
 					'passenger_c_date' => $db->showDate('datetime')
 				 );
 				$insert = $db->insert($tblName, $Data);
 				if($insert)
 				{
 					$sessData['status']['type'] = 'success';
-          			$sessData['status']['msg'] = 'you have been registerd successfuly! ';
-					$_SESSION['passenger_confirm_id'] = $db->getLastID('passenger','passenger_id');
+          $sessData['status']['msg'] = 'you have been registerd successfuly! ';
+					$_SESSION['confirm_tripID']=$_POST['tripID'];
+					$_SESSION['passengerID'] = $db->getLastID('passenger','passenger_id');
 					//set redirect url
-					$redirectURL .= 'index.php';
+					$redirectURL .= 'views/payment.php';
 				}
 				else{
-					$getMessage['status']['type']='error';
-					$getMessage['status']['type']='Some  Errors occured! Please try again later!';
+					$sessData['status']['type']='error';
+					$sessData['status']['type']='Some  Errors occured! Please try again later!';
 					//set redirect url
 					$redirectURL .= 'views/registration.php';
 				}
