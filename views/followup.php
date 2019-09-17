@@ -1,130 +1,98 @@
 <?php
   include("header.php");
 ?>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper site-min-height">
-        <!-- page start-->
-        <div class="chat-room mt">
-          <aside class="mid-side">
-            <div class="chat-room-head">
-              <h3>Chat Room: Support</h3>
-              <form action="#" class="pull-right position">
-                <input type="text" placeholder="Search" class="form-control search-btn ">
-              </form>
-            </div>
-            <div class="group-rom">
-              <div class="first-part odd">Sam Soffes</div>
-              <div class="second-part">Hi Mark, have a minute?</div>
-              <div class="third-part">12:30</div>
-            </div>
-            <div class="group-rom">
-              <div class="first-part">Mark Simmons</div>
-              <div class="second-part">Of course Sam, what you need?</div>
-              <div class="third-part">12:31</div>
-            </div>
-            <div class="group-rom">
-              <div class="first-part odd">Sam Soffes</div>
-              <div class="second-part">I want you examine the new product</div>
-              <div class="third-part">12:32</div>
-            </div>
-            <div class="group-rom">
-              <div class="first-part">Mark Simmons</div>
-              <div class="second-part">Ok, send me the pic</div>
-              <div class="third-part">12:32</div>
-            </div>
-            <div class="group-rom">
-              <div class="first-part odd">Sam Soffes</div>
-              <div class="second-part">
-                <a href="#">product.jpg</a> <span class="text-muted">35.4KB</span>
-                <p><img class="img-responsive" src="../img/product.jpg" alt=""></p>
-              </div>
-              <div class="third-part">12:32</div>
-            </div>
-            <div class="group-rom">
-              <div class="first-part">Mark Simmons</div>
-              <div class="second-part">Fantastic job, love it :)</div>
-              <div class="third-part">12:32</div>
-            </div>
-            <div class="group-rom last-group">
-              <div class="first-part odd">Sam Soffes</div>
-              <div class="second-part">Thanks!!</div>
-              <div class="third-part">12:33</div>
-            </div>
-            <footer>
-              <div class="chat-txt">
-                <input type="text" class="form-control">
-              </div>
-              <div class="btn-group hidden-sm hidden-xs">
-                <button type="button" class="btn btn-white"><i class="fa fa-meh-o"></i></button>
-                <button type="button" class="btn btn-white"><i class=" fa fa-paperclip"></i></button>
-              </div>
-              <button class="btn btn-theme">Send</button>
-            </footer>
-          </aside>
-          <aside class="right-side">
-            <div class="user-head">
-              <a href="#" class="chat-tools btn-theme"><i class="fa fa-cog"></i> </a>
-              <a href="#" class="chat-tools btn-theme03"><i class="fa fa-key"></i> </a>
-            </div>
-            <div class="invite-row">
-              <h4 class="pull-left">Team Members</h4>
-              <a href="#" class="btn btn-theme04 pull-right">+ Invite</a>
-            </div>
-            <ul class="chat-available-user">
-              <li>
-                <a href="chat_room.html">
-                  <img class="img-circle" src="../img/friends/fr-02.jpg" width="32">
-                  Paul Brown
-                  <span class="text-muted">1h:02m</span>
-                  </a>
-              </li>
-              <li>
-                <a href="chat_room.html">
-                  <img class="img-circle" src="../img/friends/fr-05.jpg" width="32">
-                  David Duncan
-                  <span class="text-muted">1h:08m</span>
-                  </a>
-              </li>
-              <li>
-                <a href="chat_room.html">
-                  <img class="img-circle" src="../img/friends/fr-07.jpg" width="32">
-                  Laura Smith
-                  <span class="text-muted">1h:10m</span>
-                  </a>
-              </li>
-              <li>
-                <a href="chat_room.html">
-                  <img class="img-circle" src="../img/friends/fr-08.jpg" width="32">
-                  Julia Schultz
-                  <span class="text-muted">3h:00m</span>
-                  </a>
-              </li>
-              <li>
-                <a href="chat_room.html">
-                  <img class="img-circle" src="../img/friends/fr-01.jpg" width="32">
-                  Frank Arias
-                  <span class="text-muted">4h:22m</span>
-                  </a>
-              </li>
-            </ul>
-          </aside>
+    
+  <div class="container" style="padding-top: 2%">
+  <div class="row">
+                 <div class="col-sm-4">
+                  <div class="panel panel-primary">
+        <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-book"></span> Passengers</h3>
+                    </div>
+                </div>
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Masha</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Vasya</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Inna</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Inna</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Inna</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Inna</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+                 </div>
+                 
+                 
+                 
+                 <div class="col-sm-8">
+                  <div class="chatbody">
+                  <div class="panel panel-primary">
+                <div class="panel-heading top-bar">
+                    <div class="col-md-8 col-xs-8">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Comments</h3>
+                    </div>
+                </div>
+                <div class="panel-body msg_container_base">
+                    <div class="row msg_container base_sent">
+                        <div class="col-md-10 col-xs-10" style="padding: 0;">
+                            <div class="messages msg_sent">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-2 avatar" style="padding: 0;">
+                            <img src="../img/followup1.jpg" class=" img-responsive ">
+                        </div>
+                    </div>
+                    <div class="row msg_container base_receive">
+                        <div class="col-md-2 col-xs-2 avatar" style="padding: 0;">
+                            <img src="../img/followup1.jpg" class=" img-responsive ">
+                        </div>
+                        <div class="col-md-10 col-xs-10" style="padding: 0;">
+                            <div class="messages msg_receive">
+                                <p>that mongodb thing looks good, huh?
+                                tiny master db, and huge document store</p>
+                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" id="btn-chat"><i class="fa fa-send fa-1x" aria-hidden="true"></i></button>
+                        </span>
+                    </div>
+                </div>
         </div>
-        <!-- page end-->
-      </section>
-      <!-- /wrapper -->
-    </section>
 
-  </section>
-  <!-- js placed at the end of the document so the pages load faster -->
+                 </div>
+             </div>
+</div>
+
   <?php
 include("footer.php");
   ?>
 
-</body>
-
-</html>
