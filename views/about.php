@@ -1,12 +1,64 @@
 <?php
-	include('header_driver.php');
+	include('header.php');
 ?>
 
 <style>
 	p{
 		font-size: 1.7rem;
 	}
+
+	.sp-body1{
+		color: #35424a !important;
+		font-weight: bold;
+		text-align: left;
+		padding-left: 30px;
+		}
+
+	#profile{
+		color: #35424a !important;
+
+		}
+
+		#spotify1 {
+   		background: #dde1e3 no-repeat center top;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: auto;
+	    margin-top: -15px;
+	    background-attachment: relative;
+	    background-position: center center;
+	    min-height: 190px;
+	    width: 70%;
+	    -webkit-background-size: 100%;
+	    -moz-background-size: 100%;
+	    -o-background-size: 100%;
+	    background-size: 100%;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+		}
+		#spotify2 {
+   		background: #dde1e3 no-repeat center top;
+        background-position-x: center;
+        background-position-y: top;
+        background-size: auto;
+	    margin-top: -543px;
+	    background-attachment: relative;
+	    background-position: center center;
+	    min-height: 190px;
+	    width: 70%;
+	    -webkit-background-size: 100%;
+	    -moz-background-size: 100%;
+	    -o-background-size: 100%;
+	    background-size: 100%;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover;
+		}
 </style>
+
 <div class="container">
    		<div class="col-md-8">
 			<h1>PRIVATE CAR SERVICE MADE EASY</h1>
@@ -22,27 +74,84 @@
 			</p>
 	 </div>
 
-	 <div class="col-md-8">
-	 	<div class="row">
-	 		<div class="col-lg-4">
-	 		   <div style="background:black; padding-top: 100px;" class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="content-panel pn">
-                  <div id="profile-01">
-                    <h3>Sharon Holmes</h3>
-                    <h6>WEB DESIGNER</h6>
-                  </div>
-                  <div class="profile-01 centered">
-                    <p>ADD TO CONTACT LIST</p>
-                  </div>
-                  <div class="centered">
-                    <h6><i class="fa fa-envelope"></i><br/>SHARON@DASHIOTHEME.COM</h6>
-                  </div>
-                </div>
-                <!-- /content-panel -->
-              </div>
-          </div>
-	 	</div>
-	 	
+	 <div id="main-content">
+	 				  
+	 				  <div class="row" style="padding-top: 8%;">
+    					<div style="background:" class="col-lg-3 col-md-3 col-sm-4 mb">
+					      <div class="content-panel pn">
+					      	<div id="spotify1">
+						       <div id="spotify">
+						        <div class="sp-title">
+						         <h3 id="profile"><strong></strong></h3>
+						        </div>
+						        <div class="sp-body1">
+						        	
+						        	<img src="../img/about03.png" style="padding-left: 22%; padding-top:2%;">
+						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">1. ENTER YOUR RIDE DETAILS</h3>
+
+						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Enter your pickup location and destination place and schedule your ride</p>
+						        </div>
+						       </div>
+					   		</div>
+					      </div>
+					     </div>
+
+					     <div style="padding-top: 1%;" class="col-lg-3 col-md-3 col-sm-4 mb">
+					      <div class="content-panel pn">
+					      	<div id="spotify1">
+						       <div id="spotify">
+						        <div class="sp-title">
+						         <h3 id="profile"><strong></strong></h3>
+						        </div>
+						        <div class="sp-body1">
+						        	<br>
+						        	<img src="../img/about05.png" style="padding-left: 17%">
+						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">3. HERE IS FOUND YOUR PAYMENT</h3>
+						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Field the form given and upload the bank sip</p>
+						        </div>
+						       </div>
+					   		</div>
+					      </div>
+					     </div>
+					  </div>
+
+					  <div class="row" style="padding-top: 6%;">
+    					<div style=" float: right; margin-right: -105px; margin-left: -105px;" class="col-lg-3 col-md-3 col-sm-4 mb">
+					      <div class="content-panel pn">
+					      	<div id="spotify2">
+						       <div id="spotify">
+						        <div class="sp-title">
+						         <h3 id="profile"><strong></strong></h3>
+						        </div>
+						        <div class="sp-body1">
+						        	<br>
+						        	<img src="../img/about.png" style="padding-left: 3%">
+						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">2. CHOOSE A CAR IN WHICH YOU WANT TO TRAVEL</h3>
+						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Choose the car according to your needs</p>
+						        </div>
+						       </div>
+					   		</div>
+					      </div>
+					     </div>
+
+					     <div style="padding-top: 20.5%; float: right; margin-right: -188px; margin-left: -188px;" class="col-lg-3 col-md-3 col-sm-4 mb">
+					      <div class="content-panel pn">
+					      	<div id="spotify2">
+						       <div id="spotify">
+						        <div class="sp-title">
+						         <h3 id="profile"><strong></strong></h3>
+						        </div>
+						        <div class="sp-body1">
+						        	<br>
+						        	<img src="../img/about06.png" style="padding-left: 16%">
+						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">4. MAKE A COMMENT ABOUT YOUR TRIP</h3>
+						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Let us know about your ride</p>
+						        </div>
+						       </div>
+					   		</div>
+					      </div>
+					     </div>
+					  </div>
 	 </div>
 </div>
 

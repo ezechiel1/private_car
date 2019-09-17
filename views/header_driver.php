@@ -37,6 +37,16 @@ endif;
 	<link rel="stylesheet" href="../csss/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="../csss/mdb.css">
 
+
+  <!-- Bootstrap core CSS -->
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="../cs/style.css" rel="stylesheet">
+  <link href="../cs/style-responsive.css" rel="stylesheet">
+
+
 	<!-- PNotify -->
   <link href="../pnotify/dist/pnotify.css" rel="stylesheet">
   <link href="../pnotify/dist/pnotify.buttons.css" rel="stylesheet">
@@ -78,7 +88,7 @@ if($sssData!=''):
                      <li> <a href="newtravel.php"><strong>New travel</strong></a></li>
                      <li> <a href="view_travel_passengers.php"><strong>Passengers</strong></a></li>
                      <li> <a href="#"><strong>Payment</strong></a></li>
-                     <li> <a href="#"><strong>Follow-Up</strong></a></li>
+                     <li> <a href="followup.php"><strong>Follow-Up</strong></a></li>
                      <li> <a href="logout.php"><strong>Logout</strong></a></li>
                   </ul>
             </nav>

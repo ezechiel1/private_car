@@ -56,7 +56,7 @@ elseif(isset($_SESSION['sessData']) and $_SESSION['sessData']!=''):
                      <li> <a href="../index.php"><strong> Home </strong></a></li>
                      <li> <a href="about.php"><strong>About</strong></a></li>
                      <li> <a href="driver.php"><strong>Driver</strong></a></li>
-                     <li> <a href="follow-up.php"><strong>Developpers</strong></a></li>
+                     <li> <a href=""><strong>Developpers</strong></a></li>
                   </ul>
             </nav>
           </div>
