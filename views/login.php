@@ -107,7 +107,7 @@
           <p id="">Please field this form below </p>
           </div>
                   <!-- FORM VALIDATION -->
-                  <form style="padding-left: 40%" id ="contact-form" name="contact-form" action="../class/loginControler.php" method="POST"  onsubmit="return validateForm()" >
+                  <form enctype="multipart/form-data" style="padding-left: 40%" id ="contact-form" name="contact-form" action="../class/loginControlerForPassenger.php" method="POST"  onsubmit="return validateForm()" >
           <!--Grid row-->
           <div class="row">
 
@@ -135,8 +135,7 @@
                         	</div>
 
                         	<div id="continuation">
-                          	  <input class="btn btn-info" type="submit" name="login" value="SIGN IN">
-																<a style="margin-left: 12%;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+                          	  <input class="btn btn-info" type="submit" name="login" value="SIGN IN"><a style="margin-left: 12%;" data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
                             <div>
                             	<br>
                         	<div class="registration">

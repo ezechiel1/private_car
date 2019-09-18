@@ -259,6 +259,28 @@ class DB{
         return !empty($data)?$data:false;
     }
 
+    public function getfollowup($passengerID,$travelID ){
+        $sql ="SELECT * from  comments inner join travel on travel.travel_id=comments.travel_id inner join passenger on passenger.passenger_id=comments.passenger_id inner join driver on driver.driver_id=comments.driver_id  where comments.passenger_id='$passengerID' AND comments.travel_id='$travelID'  order by comments.comments_id aSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
+
+        public function getfollow_up($driverID,$travelID ){
+        $sql ="SELECT * from  comments inner join travel on travel.travel_id=comments.travel_id inner join driver on driver.driver_id=comments.driver_id  where comments.driver_id='$driverID' AND comments.travel_id='$travelID'  order by comments.comments_id aSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
+
     public function totalItems($table){
         $sql ="SELECT * from  ".$table;
         $result = $this->db->query($sql);

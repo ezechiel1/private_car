@@ -59,7 +59,7 @@
 		}
 </style>
 
-<div class="container">
+<div class="col-md-10" style="margin-left: 40px;">
    		<div class="col-md-8">
 			<h1>PRIVATE CAR SERVICE MADE EASY</h1>
 <br>
@@ -106,8 +106,8 @@
 						        <div class="sp-body1">
 						        	<br>
 						        	<img src="../img/about05.png" style="padding-left: 17%">
-						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">3. HERE IS FOUND YOUR PAYMENT</h3>
-						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Field the form given and upload the bank sip</p>
+						        	<h3 style="font-size: 1.5rem; font-weight: bold; padding-right: 10%; text-align: center;">3. REGISTRATION AND PAYMENT</h3>
+						        	<p style="font-size: 1.5rem; text-align: center; padding-right: 10%;">Field the form given and upload the bank sip</p><br>
 						        </div>
 						       </div>
 					   		</div>
@@ -115,7 +115,7 @@
 					     </div>
 					  </div>
 
-					  <div class="row" style="padding-top: 6%;">
+					  <div class="row" style="padding-top: 0.9%;">
     					<div style=" float: right; margin-right: -105px; margin-left: -105px;" class="col-lg-3 col-md-3 col-sm-4 mb">
 					      <div class="content-panel pn">
 					      	<div id="spotify2">
@@ -134,7 +134,7 @@
 					      </div>
 					     </div>
 
-					     <div style="padding-top: 20.5%; float: right; margin-right: -188px; margin-left: -188px;" class="col-lg-3 col-md-3 col-sm-4 mb">
+					     <div style="padding-top: 24.5%; float: right; margin-right: -158px; margin-left: -158px;" class="col-lg-3 col-md-3 col-sm-4 mb">
 					      <div class="content-panel pn">
 					      	<div id="spotify2">
 						       <div id="spotify">
@@ -155,7 +155,53 @@
 	 </div>
 </div>
 
+</p></div></div>
+  
+  <script src="../lib/jquery/jquery.min.js"></script>
 
-<?php
-	include('footer.php');
-?>
+  <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+  <script class="include" type="text/javascript" src="../lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="../lib/jquery.scrollTo.min.js"></script>
+  <script src="../lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="../lib/common-scripts.js"></script>
+  <script src="../lib/form-validation-script.js"></script>
+
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../js/mdb.js"></script>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+
+  <script>
+    $('.contact-map').click(function() {
+
+      //google map in tab click initialize
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(40.6700, -73.9400);
+        var mapOptions = {
+          zoom: 11,
+          scrollwheel: false,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Private Car!'
+        });
+      }
+      google.maps.event.addDomListener(window, 'click', initialize);
+    });
+  </script>
+  <!-- PNotify -->
+  <script src="../pnotify/dist/pnotify.js"></script>
+  <script src="../pnotify/dist/pnotify.buttons.js"></script>
+  <script src="../pnotify/dist/pnotify.nonblock.js"></script>
+
+<?php $_SESSION['sessData']=''; ?>
+</body>
+</html>

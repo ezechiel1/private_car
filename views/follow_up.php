@@ -1,8 +1,8 @@
 <?php
-  include("header_passenger.php");
+  include("header_driver.php");
   
   $registeredPASSENGER=$db->getRows('passenger', array('Order by'=>'passenger_id'));
-  $registeredMESSAGE=$db->getfollowup($passengerID, $travelID);
+  $registeredMESSAGE=$db->getfollow_up($passengerID, $travelID);
 ?>
   <style>
     .chatperson{
@@ -252,7 +252,7 @@ img {
                 </div>
                 <?php endforeach; endif;  ?>
               </div>
-          <form enctype="multipart/form-data" method="POST" action="../class/followupControler.php">
+          <form enctype="multipart/form-data" method="POST" action="../class/follow_upControler.php">
                 <div class="panel-footer">
                     <div class="input-group">
                         <textarea id="btn-input" type="text" name="message" class="form-control input-sm chat_input" placeholder="Write your message here..." /></textarea>

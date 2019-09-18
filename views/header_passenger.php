@@ -2,21 +2,48 @@
 //load and initialize database class
 require_once '../core/db.php';
 $db = new DB();
-if($_SESSION['driverID']=='') header('location: driver.php'); ?>
+if($_SESSION['passengerID']=='') header('location: login.php'); ?>
 <?php
-$driverID=$_SESSION['driverID'];
-$tblName='driver';
+$passengerID=$_SESSION['passengerID'];
+$tblName='passenger';
 $condition = array(
-										'Order by' => 'driver_id asc',
-										'where' => array('driver_id' => $driverID)
+										'Order by' => 'passenger_id asc',
+										'where' => array('passenger_id' => $passengerID)
 									);
-$inDriver = $db->getRows($tblName,$condition);
-if(!empty($inDriver)):
-	foreach($inDriver as $showDriver):
-				$driverName = $showDriver['f_name'].' '.$showDriver['l_name'];
-				$driverPhone = $showDriver['phone_number'];
-				$dID= $showDriver['driver_id'];
+$inpassenger = $db->getRows($tblName,$condition);
+if(!empty($inpassenger)):
+	foreach($inpassenger as $showpassenger):
+				$passengerName = $showpassenger['passenger_fname'].' '.$showpassenger['passenger_lname'];
+				$passengerPhone = $showpassenger['passenger_phone'];
+				$dID= $showpassenger['passenger_id'];
 	endforeach;
+endif;
+//travelid of the logged in passenger
+$tblName='travel';
+$condition = array(
+                    'Order by' => 'travel_id DESC',
+                    'where' => array('passenger_id' => $passengerID)
+                  );
+$trav = $db->getRows($tblName,$condition);
+if(!empty($trav)):
+  foreach($trav as $gettrav):
+        $tripID= $gettrav['trip_id'];
+        $travelID=$gettrav['travel_id'];
+  endforeach;
+  else: $travelID=0; $trip=0;
+endif;
+//get driver
+$tblName='set_travel';
+$condition = array(
+                    'Order by' => 'trip_id DESC',
+                    'where' => array('trip_id' => $tripID)
+                  );
+$trav = $db->getRows($tblName,$condition);
+if(!empty($trav)):
+  foreach($trav as $gettrav):
+        $driverID= $gettrav['driver_id'];
+  endforeach;
+  else: $driverID=0; 
 endif;
 
 ?>
@@ -83,13 +110,9 @@ if($sssData!=''):
               </div>
              <nav>
                   <ul>
-                     <li> <a href="editprofile.php"><strong> Profile </strong></a></li>
-                     <li> <a href="editcar.php"><strong>Car</strong></a></li>
-                     <li> <a href="newtravel.php"><strong>New travel</strong></a></li>
-                     <li> <a href="view_travel_passengers.php"><strong>Passengers</strong></a></li>
-                     <li> <a href="#"><strong>Payment</strong></a></li>
-                     <li> <a href="follow_up.php"><strong>Follow-Up</strong></a></li>
-                     <li> <a href="logout.php"><strong>Logout</strong></a></li>
+                     <li> <a href="index.php"><strong>Home</strong></a></li>
+                     <li> <a href="followup.php"><strong>Follow-Up</strong></a></li>
+                     <li> <a href="logout_passenger.php"><strong>Logout</strong></a></li>
                   </ul>
             </nav>
           </div>
