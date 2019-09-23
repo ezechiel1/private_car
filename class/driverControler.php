@@ -12,7 +12,7 @@
 			$tblName='driver';
 				$Data = array
 				(
-          'f_name' => $_POST['f_name'],
+          			'f_name' => $_POST['f_name'],
 					'l_name' => $_POST['l_name'],
 					'age' => $_POST['age'],
 					'gender' => $_POST['gender'],
@@ -46,13 +46,11 @@ if(isset($_POST['update']))
      $tblName = 'driver';
      if (isset($_FILES['updateProfile'])) {
      	$updateProfile=$extra->uploadPicture('../img/profile/',$_FILES['updateProfile']);
-
      	if ($updateProfile) {
      		$Data0 = array ('profile_picture' => $updateProfile);
      		$condition0=array('driver_id' => $_POST['ID']);
      		$update0= $db->update($tblName, $Data0,$condition0);	
      	}
-
      }
             //insert data
             $Data = array
@@ -68,16 +66,16 @@ if(isset($_POST['update']))
 							'permit_id' => $_POST['permit_id']
             );
             $condition=array('driver_id' => $_POST['ID'], );
-            $update = $db->update($tblName, $Data,$condition);
+            $update = $db->update($tblName, $Data, $condition);
             if($update){
                 $sessData['status']['type'] = 'success';
                 $sessData['status']['msg'] = 'The modification has been saved successfuly!';
 								//set redirect url
-								$redirectURL .= 'views/welcomeDriver.php';
+								$redirectURL .= 'views/editprofile.php';
             }
             else{
-                $sessData['status']['type'] = 'error';
-                $sessData['status']['msg'] = 'Some  Errors occured! Please try again later!';
+                $sesssData['status']['type'] = 'error';
+                $sesssData['status']['msg'] = 'Some  Errors occured! Please try again later!';
 								//set redirect url
 								$redirectURL .= 'views/editprofile.php';
             }

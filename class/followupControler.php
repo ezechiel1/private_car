@@ -17,22 +17,26 @@
           			'driver_id' => $_POST['driverID'],
 					'travel_id' => $_POST['travelID'],
 					'message' => $_POST['message'],
-					'category' => 0,
+					'category' => $_POST['category'],
 					'c_date' => $db->showDate('datetime')
 				 );
 				$insert = $db->insert($tblName, $Data);
 				if($insert)
 				{
-					$sessData['status']['type'] = 'success';
-          			$sessData['status']['msg'] = 'Your Request has been done successfully!';
+					// $sessData['status']['type'] = 'success';
+     //      			$sessData['status']['msg'] = 'Your Request has been done successfully!';
 					//set redirect url
-					$redirectURL .= 'views/followup.php';
+					if($_POST['category']==0):$redirectURL .= 'views/followup.php';
+					elseif($_POST['category']==1): $redirectURL .='views/follow_up.php?request='.$_POST['tripID'].'&q='.$_POST['passengerID'];
+					endif;
 				}
 				else{
-					$sessData['status']['type']='error';
-					$sessData['status']['type']='Some  Errors occured! Please try again later!';
+					// $sessData['status']['type']='error';
+					// $sessData['status']['type']='Some  Errors occured! Please try again later!';
 					//set redirect url
-					$redirectURL .= 'views/followup.php---oya';
+					if($_POST['category']==0):$redirectURL .= 'views/followup.php';
+					elseif($_POST['category']==1): $redirectURL .='views/follow_up.php?request='.$_POST['tripID'].'&q='.$_POST['passengerID'];
+					endif;
 				}
 			
 }

@@ -17,7 +17,7 @@
           			'driver_id' => $_POST['driverID'],
 					'travel_id' => $_POST['travelID'],
 					'message' => $_POST['message'],
-					'category' => 1,
+					'category' => $_POST['category'],
 					'c_date' => $db->showDate('datetime')
 				 );
 				$insert = $db->insert($tblName, $Data);

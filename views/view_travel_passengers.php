@@ -1,7 +1,7 @@
 <?php
   include("header_driver.php");
   //Get the registered passenger from the database Table travel
-  $registeredPASSENGER=$db->getTravelInfo($driverID);
+  $registeredPASSENGER=$db->getPayment($driverID);
 ?>
 
 <style>

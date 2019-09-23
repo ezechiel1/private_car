@@ -110,7 +110,7 @@ if($sssData!=''):
               </div>
              <nav>
                   <ul>
-                     <li> <a href="index.php"><strong>Home</strong></a></li>
+                     <li> <a href="../index.php"><strong>Home</strong></a></li>
                      <li> <a href="followup.php"><strong>Follow-Up</strong></a></li>
                      <li> <a href="logout_passenger.php"><strong>Logout</strong></a></li>
                   </ul>

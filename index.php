@@ -149,21 +149,16 @@ footer {
             <!--Grid column-->
                             <div class="col-md-3">
                               <div class="md-form">
-                                <div class="md-form">
                                   <select id="from_place" onchange="getTravelInfo();" id="element" name="fromPlace" class="form-control">
                                     <option value=""  hidden>From Place</option>
 <?php if(!empty($travelOption)): $tmps=array(); foreach($travelOption as $getPlace):
-// foreach($tmps as $gtmps):
    if(!in_array(strtolower($getPlace['from_place']), $tmps)):?>
-                                    <option class="form-control" style="color: black; height: 50px;" value="<?php echo $getPlace['from_place']; ?>"><?php echo $getPlace['from_place']; ?></option>
+                                    <option style="color: black;" value="<?php echo $getPlace['from_place']; ?>"><?php echo $getPlace['from_place']; ?></option>
 <?php
   endif;
-// endforeach;
   $tmps[] = strtolower($getPlace['from_place']);
  endforeach; endif; ?>
                                   </select>
-                                  <!-- <label for="name" class="">From place</label> -->
-                                </div>
                               </div>
                             </div>
                             <!--Grid column-->
@@ -171,13 +166,10 @@ footer {
                             <!--Grid column-->
                             <div class="col-md-3">
                               <div class="md-form">
-                                <div class="md-form">
-                                  <select required id="element" name="from_place" class="form-control">
+                                  <select required id="element" id="element" name="from_place" class="form-control">
                                     <option value="" hidden>Destination</option>
 
                                   </select>
-                                  <!-- <label for="l_name" class="">Your Destination</label> -->
-                                </div>
                               </div>
                             </div>
                             <!--Grid column-->

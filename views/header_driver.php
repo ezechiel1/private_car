@@ -15,6 +15,7 @@ if(!empty($inDriver)):
 	foreach($inDriver as $showDriver):
 				$driverName = $showDriver['f_name'].' '.$showDriver['l_name'];
 				$driverPhone = $showDriver['phone_number'];
+        $profile=$showDriver['profile_picture'];
 				$dID= $showDriver['driver_id'];
 	endforeach;
 endif;
@@ -86,11 +87,27 @@ if($sssData!=''):
                      <li> <a href="editprofile.php"><strong> Profile </strong></a></li>
                      <li> <a href="editcar.php"><strong>Car</strong></a></li>
                      <li> <a href="newtravel.php"><strong>New travel</strong></a></li>
-                     <li> <a href="view_travel_passengers.php"><strong>Passengers</strong></a></li>
-                     <li> <a href="#"><strong>Payment</strong></a></li>
-                     <li> <a href="follow_up.php"><strong>Follow-Up</strong></a></li>
+                     <!-- <li> <a href="view_travel_passengers.php"><strong>Passengers</strong></a></li> -->
+                     <li> <a href="payment_report.php"><strong>Payment</strong></a></li>
+                     <li> <a href="travel_follow_up.php"><strong>Follow-Up</strong></a></li>
                      <li> <a href="logout.php"><strong>Logout</strong></a></li>
                   </ul>
             </nav>
           </div>
 	</header>
+  <script type="text/javascript">
+    function handleImageUpload() 
+    {
+
+          var image = document.getElementById("upload").files[0];
+
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+            document.getElementById("display-image").src = e.target.result;
+          }
+
+          reader.readAsDataURL(image);
+
+      } 
+  </script>

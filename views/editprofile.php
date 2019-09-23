@@ -157,9 +157,9 @@
            </div>  
           <div lg-hidden class="container">
             <div hidden-sm class="box col-md-4"  style="border: none; margin-left: 1.5%;">
-              <a><img src="../img/profile/index.jpeg" class="img-circle"></a>
+              <a><img style="width: 225px; height: 225px;" id="display-image" src="../img/profile/<?php echo $profile;?>" class="img-circle"></a>
               <br><br>
-              <input type="file" name="updateProfile" style="margin-left: 60px;">
+              <input id="upload" onChange="handleImageUpload()" type="file" name="updateProfile" style="margin-left: 60px;">
               <br>
               <p>
                 <button type="submit" name="update" class="btn btn-success">Save</button>

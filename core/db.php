@@ -226,8 +226,19 @@ class DB{
       return $currentDate;
     }
 
-    public function getTravelInfo($driverID){
-        $sql ="SELECT * from  travel inner join set_travel on travel.trip_id=set_travel.trip_id inner join passenger on travel.passenger_id=passenger.passenger_id inner join payment on travel.payment_id=payment.payment_id where set_travel.driver_id='$driverID'  order by set_travel.destination_place aSC";
+    public function getTravelInfo($driverID, $tripID){
+        $sql ="SELECT * from  travel inner join set_travel on travel.trip_id=set_travel.trip_id inner join passenger on travel.passenger_id=passenger.passenger_id inner join payment on travel.payment_id=payment.payment_id where set_travel.driver_id='$driverID' and set_travel.trip_id='$tripID'  order by set_travel.destination_place  aSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
+
+    public function getTravelInfoPassenger($driverID){
+        $sql ="SELECT * from  travel inner join set_travel on travel.trip_id=set_travel.trip_id inner join passenger on travel.passenger_id=passenger.passenger_id inner join payment on travel.payment_id=payment.payment_id where set_travel.driver_id='$driverID' order by set_travel.destination_place  aSC";
         $result = $this->db->query($sql);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
@@ -248,6 +259,32 @@ class DB{
         return !empty($data)?$data:false;
     }
 
+    public function getFollowupTravel($driverID){
+        $sql ="SELECT * from  set_travel inner join driver on set_travel.driver_id=driver.driver_id inner join car on driver.driver_id=car.driver_id where set_travel.driver_id='$driverID'  order by set_travel.trip_id deSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
+
+    public function updateAvailbaleSeats($tripID){
+        $sql ="SELECT *from  set_travel  where set_travel.trip_id='$tripID'  order by set_travel.trip_id deSC";
+        if(mysqli_num_rows($sql)>0){
+            $resu = $this->db->query($sql);
+            $gt=$resu->fetch_assoc();
+            if($gt['available_seats']>=0){
+                $ttS= $gt['available_seats']-1;
+                $sql00 = "UPDATE set_travel set available_seats = '$ttS'";
+                $result = $this->db->query($sql00);
+                if($result) return true; else return false;
+            }
+        }
+        
+    }
+
     public function getCarTrip($tripID){
         $sql ="SELECT * from  set_travel inner join driver on set_travel.driver_id=driver.driver_id inner join car on driver.driver_id=car.driver_id where set_travel.trip_id='$tripID'  order by set_travel.trip_id aSC";
         $result = $this->db->query($sql);
@@ -259,8 +296,10 @@ class DB{
         return !empty($data)?$data:false;
     }
 
+
+
     public function getfollowup($passengerID,$travelID ){
-        $sql ="SELECT * from  comments inner join travel on travel.travel_id=comments.travel_id inner join passenger on passenger.passenger_id=comments.passenger_id inner join driver on driver.driver_id=comments.driver_id  where comments.passenger_id='$passengerID' AND comments.travel_id='$travelID'  order by comments.comments_id aSC";
+        $sql ="SELECT * from  comments inner join travel on travel.travel_id=comments.travel_id inner join passenger on passenger.passenger_id=comments.passenger_id inner join driver on driver.driver_id=comments.driver_id  where comments.passenger_id='$passengerID' AND comments.travel_id='$travelID'  order by comments.comments_id deSC";
         $result = $this->db->query($sql);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
@@ -270,6 +309,16 @@ class DB{
         return !empty($data)?$data:false;
     }
 
+    public function gettfollowup($tripID, $driverID, $passengerID){
+        $sql ="SELECT * from  comments right join passenger on passenger.passenger_id=comments.passenger_id inner join travel on travel.travel_id=comments.travel_id inner join set_travel on set_travel.trip_id=travel.trip_id inner join driver on driver.driver_id=set_travel.driver_id WHERE driver.driver_id='$driverID' and passenger.passenger_id='$passengerID' and set_travel.trip_id='$tripID'  order by comments.comments_id deSC";
+        $result = $this->db->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$data:false;
+    }
         public function getfollow_up($driverID,$travelID ){
         $sql ="SELECT * from  comments inner join travel on travel.travel_id=comments.travel_id inner join driver on driver.driver_id=comments.driver_id  where comments.driver_id='$driverID' AND comments.travel_id='$travelID'  order by comments.comments_id aSC";
         $result = $this->db->query($sql);
@@ -293,6 +342,17 @@ class DB{
         return !empty($data)?$result->num_rows:0;
     }
 
+    public function totalPassenger($tripID){
+        $sql ="SELECT * from  travel where trip_id='$tripID'";
+        $result = $this->db->query($sql);
+
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $data[] = $row;
+                }
+        }
+        return !empty($data)?$result->num_rows:0;
+    }
 
   public function getAdmin(){
     $sql ="SELECT  * from admin ";

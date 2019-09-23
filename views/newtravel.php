@@ -126,7 +126,7 @@ if(!empty($carInfoID)): foreach($carInfoID as $getCarID):
 <input type="hidden" name="car_id" value="<?php echo $getCarID['car_id'];?>">
 <?php endforeach; endif; ?>
 								 <!-- <p clas> -->
-								<input type="submit" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-xs  pull-left" name="setNewTravel" value="Submit" >
+								<input type="submit" style="background: #e8491d; color: white;margin-left: 0%;margin-bottom: 0px;font-size: 11px;" class="btn btn-sm  pull-left" name="setNewTravel" value="Register" >
 								 <!-- </p> -->
 						 </form>
 					</div>
@@ -138,7 +138,7 @@ if(!empty($carInfoID)): foreach($carInfoID as $getCarID):
 $carInfo = $db->getRows('car',array('Order by'=>'car_id', 'where'=>array('driver_id'=>$dID)));
 if(!empty($carInfo)): foreach($carInfo as $showCar):
 ?>
-							<a href="payment.php"><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $showCar['car_picture'];?>"></a>
+							<a href=""><img style="width: 300px; height: 170px;" src="../img/cars/<?php echo $showCar['car_picture'];?>"></a>
 							<h3><strong> <?php echo $showCar['car_name']; ?> </strong></h3>
 							<ul class="container-fluid car-list">
 								<li>Car Model : <strong class="pull-right">

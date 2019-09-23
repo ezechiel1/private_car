@@ -1,8 +1,11 @@
 <?php
   include("header_driver.php");
-  
-  $registeredPASSENGER=$db->getRows('passenger', array('Order by'=>'passenger_id'));
-  $registeredMESSAGE=$db->getfollow_up($passengerID, $travelID);
+  $tripID=$_GET['request'];
+  $passengerID=0;
+  if(isset($_GET['q'])) $passengerID=$_GET['q'];
+  $registeredPASSENGER=$db->getTravelInfo($driverID, $tripID);
+  $registeredMESSAGE=$db->gettfollowup($tripID, $driverID, $passengerID);
+  if(!empty($registeredMESSAGE)): foreach($registeredMESSAGE as $gettt): $travelID=$gettt['travel_id']; endforeach; endif;
 ?>
   <style>
     .chatperson{
@@ -189,7 +192,7 @@ img {
                   <div class="panel panel-primary">
         <div class="panel-heading top-bar">
                     <div class="col-md-8 col-xs-8">
-                        <h3 class="panel-title"><span class="glyphicon glyphicon-book"></span> Passengers <?php echo $travelID;?></h3>
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-book"></span> Passengers </h3>
                     </div>
                 </div>
         <table class="table table-striped table-hover">
@@ -197,10 +200,15 @@ img {
             <?php 
               if ($registeredPASSENGER): $count=0; foreach($registeredPASSENGER as $show): $count++;
              ?>
+             
                 <tr>
-                    <td><?php echo $count; ?></td>
-                    <td><?php echo $show['passenger_fname'].' '.$show['passenger_lname']; ?></td>
+                  <td>
+                  <a href="follow_up.php?request=<?php echo $tripID;?>&q=<?php echo $show['passenger_id'];?>"><?php echo $count; ?>
+                    <?php echo $show['passenger_fname'].' '.$show['passenger_lname']; ?>
+                    </a>
+                  </td>
                 </tr>
+              
                 <?php 
                   endforeach;
                 endif;
@@ -221,14 +229,14 @@ img {
                     </div>
                 </div>
                 <div style="height: 300px; overflow: auto;">
-                <?php if ($registeredMESSAGE): $count1=0; foreach($registeredMESSAGE as $show): $count1++; ?>
+                <?php if(isset($_GET['q'])): if ($registeredMESSAGE): $count1=0; foreach($registeredMESSAGE as $show): $count1++; ?>
                 <div class="panel-body msg_container_base">
                 <?php if ($show['category']==0) {?>   
                     <div class="row msg_container base_sent">
                         <div class="col-md-10 col-xs-10" style="padding: 0;">
                             <div style="text-align: justify;  word-wrap: break-word;" class="messages msg_sent">
                                 <span style="width: 300px;" ><?php echo $show['message']; ?></span>
-                                <time datetime="2009-11-13T20:00"><?php echo $show['passenger_fname'] .' • '.$show['c_date']; ?></time>
+                                <time ><?php echo $show['passenger_fname'] .' • '.$show['c_date']; ?></time>
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar" style="padding: 0;">
@@ -250,21 +258,25 @@ img {
                     </div>
                     <?php } ?>
                 </div>
-                <?php endforeach; endif;  ?>
+                <?php endforeach; endif; else: echo '<br><br><br><br><br><br><br><br><center><strong style="margin-top: 100px;">Please  Select the Passenger to Start Conversation.</strong></center>'; endif;  ?>
               </div>
-          <form enctype="multipart/form-data" method="POST" action="../class/follow_upControler.php">
+    <?php if(isset($_GET['q'])){ ?>
+          <form enctype="multipart/form-data" method="POST" action="../class/followupControler.php">
                 <div class="panel-footer">
                     <div class="input-group">
-                        <textarea id="btn-input" type="text" name="message" class="form-control input-sm chat_input" placeholder="Write your message here..." /></textarea>
+                        <textarea autofocus="" id="btn-input" type="text" name="message" class="form-control input-sm chat_input" placeholder="Write your message here..." /></textarea>
                         <span class="input-group-btn" >
+                          <input type="text" hidden="" name="category" value="1">
                           <input type="text" hidden="" name="driverID" value="<?php echo $driverID?>">
                           <input type="text" hidden="" name="travelID" value="<?php echo $travelID?>">
                           <input type="text" hidden="" name="passengerID" value="<?php echo $passengerID?>">
+                          <input type="text" hidden="" name="tripID" value="<?php echo $tripID;?>">
                         <button type="submit" name="send_message" style="background:  #424c59; color: white;padding-top: 14px;padding-bottom: 13px;margin-top: 0px;margin-bottom: 0px;" class="btn  btn-sm" id="btn-chat"><i class="glyphicon glyphicon-send" style="font-size: 30px;" aria-hidden="true"></i></button>
                         </span>
                     </div>
                 </div>
             </form>
+    <?php }else echo '<br><br>'; ?>
         </div>
       </div></div></div></div>
     </div>

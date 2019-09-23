@@ -18,7 +18,7 @@
 					'bank_name' => $_POST['bank_name'],
           			'amount' => $_POST['amount_paid'],
 					'date' => $_POST['date_of_payment'],
-					'passenger_id' => 1,
+					'passenger_id' => $_SESSION['passengerID'],
 					'slip_number' => $_POST['BankSlipNumber'],
 					'slip_picture' => $bankslip,
 					'c_date' => $db->showDate('datetime')
@@ -26,10 +26,27 @@
 				$insert = $db->insert($tblName, $Data);
 				if($insert)
 				{
-					$sessData['status']['type'] = 'success';
-          			$sessData['status']['msg'] = 'Your Request has been done successfully!';
-					//set redirect url
-					$redirectURL .= 'views/newCar.php';
+					//Regiter in  travel
+					$tData=array(
+						'trip_id'=>$_SESSION['confirm_tripID'], 
+						'passenger_id'=> $_SESSION['passengerID'], 
+						'payment_id'=> $db->getLastID('payment', 'payment_id'),
+						'c_date' => $db->showDate('datetime')
+					);
+					$register = $db->insert('travel', $tData);
+					if($register){
+						
+						$sessData['status']['type'] = 'success';
+	          			$sessData['status']['msg'] = 'Your Request has been done successfully!';
+						//set redirect url
+						$redirectURL .= 'views/followup.php';
+					}else{
+						$sessData['status']['type']='error';
+						$sessData['status']['type']='Some  Errors occured! Please try again later!';
+						//set redirect url
+						$redirectURL .= 'views/payment.php';
+					}
+					
 				}
 				else{
 					$sessData['status']['type']='error';

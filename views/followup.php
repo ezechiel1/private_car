@@ -185,7 +185,7 @@ img {
 
   <div class="container" style="padding-top: 2%">
   <div class="row">
-                 <div class="col-sm-4">
+               <!--   <div class="col-sm-4">
                   <div class="panel panel-primary">
         <div class="panel-heading top-bar">
                     <div class="col-md-8 col-xs-8">
@@ -211,8 +211,8 @@ img {
                  </div>
                  
                  
-                 
-          <div class="col-sm-8">
+                  -->
+          <div class="col-sm-12">
             <div class="chatbody">
               <div class="panel panel-primary">
                 <div class="panel-heading top-bar">
@@ -223,12 +223,12 @@ img {
                 <div style="height: 300px; overflow: auto;">
                 <?php if ($registeredMESSAGE): $count1=0; foreach($registeredMESSAGE as $show): $count1++; ?>
                 <div class="panel-body msg_container_base">
-                <?php if ($show['category']==0) {?>   
+                <?php if ($show['category']==1) {?>   
                     <div class="row msg_container base_sent">
                         <div class="col-md-10 col-xs-10" style="padding: 0;">
                             <div style="text-align: justify;  word-wrap: break-word;" class="messages msg_sent">
                                 <span style="width: 300px;" ><?php echo $show['message']; ?></span>
-                                <time datetime="2009-11-13T20:00"><?php echo $show['passenger_fname'] .' • '.$show['c_date']; ?></time>
+                                <time class="pull-right"  datetime="2009-11-13T20:00"><?php echo $show['f_name'].' '.$show['l_name'].' • '.' '.$show['c_date']; ?></time>
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar" style="padding: 0;">
@@ -236,7 +236,7 @@ img {
                         </div>
                     </div>
                    <?php } ?>
-                   <?php if ($show['category']==1) {?>
+                   <?php if ($show['category']==0) {?>
                     <div class="row msg_container base_receive">
                         <div class="col-md-2 col-xs-2 avatar" style="padding: 0;">
                             <!-- <img src="../img/index.jpeg" class=" img-responsive "> -->
@@ -244,7 +244,7 @@ img {
                         <div class="col-md-10 col-xs-10" style="padding: 0;">
                             <div style="text-align: justify; background: #d7eae9;; color: #151414;  word-wrap: break-word;" class="messages msg_receive">
                                 <span style="width: 300px;"><?php echo $show['message'];?></span>
-                                <time datetime="2009-11-13T20:00"><?php echo $show['passenger_fname'] .' • '.$show['c_date']; ?></time>
+                                <time class="pull-right"   datetime="2009-11-13T20:00"><?php echo $show['passenger_fname'] .' • '.$show['c_date']; ?></time>
                             </div>
                         </div>
                     </div>
@@ -257,6 +257,7 @@ img {
                     <div class="input-group">
                         <textarea id="btn-input" type="text" name="message" class="form-control input-sm chat_input" placeholder="Write your message here..." /></textarea>
                         <span class="input-group-btn" >
+                          <input type="text" hidden="" name="category" value="0">
                           <input type="text" hidden="" name="driverID" value="<?php echo $driverID?>">
                           <input type="text" hidden="" name="travelID" value="<?php echo $travelID?>">
                           <input type="text" hidden="" name="passengerID" value="<?php echo $passengerID?>">
