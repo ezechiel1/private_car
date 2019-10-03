@@ -44,7 +44,7 @@
 						$sessData['status']['type']='error';
 						$sessData['status']['type']='Some  Errors occured! Please try again later!';
 						//set redirect url
-						$redirectURL .= 'views/payment.php';
+						$redirectURL .= 'views/index.php';
 					}
 					
 				}
